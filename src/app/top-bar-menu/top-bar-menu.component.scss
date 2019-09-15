@@ -1,0 +1,48 @@
+.serachdivDIV{
+
+    width: 30%;
+    margin-left: calc(50% - 360px);
+    position: static;
+    button{
+        margin-right: 5px;
+        
+    }
+    .btnEntrar{
+        margin-left: 5px;
+        background-color:#5cb85c;
+    }
+   
+}
+.logo{
+    margin-left: 5%;
+    position: absolute;
+}
+/*
+.serchDiv{
+    width: auto;
+    padding: 10px;
+    background-color: blue;
+    height: 60px;
+    input[type=search]{
+        border: 0;
+        background-color: blue;
+        height: 30px;
+    }
+    border-radius: 5px;
+}*/
+input[type=search] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 16px;
+    background-color: white;
+    //background-image: url('../../assets/download.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  

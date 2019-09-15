@@ -1,0 +1,38 @@
+.divp{
+        height: auto;
+        width: 24%;
+        background-color: white;
+        word-wrap: break-word;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 12px;
+        display: inline-block;
+        margin-right: 5px;
+        .contents{
+            p{
+                color: gray;
+            }
+            button {
+                background-color: blue;
+                border: 0;
+                color: white;
+                padding: 5px;
+                padding-left: 15px;
+                padding-right: 15px;
+                border-radius: 4px;
+                margin-left: calc(50% - 15%);
+            }
+            button:hover {
+             font-weight: bold;
+             position: relative;
+             
+          }
+          button:active{
+              opacity: 0.8;
+          }
+        }
+    }
+    img{
+        width: 99%;
+        height: 20%;
+    }
