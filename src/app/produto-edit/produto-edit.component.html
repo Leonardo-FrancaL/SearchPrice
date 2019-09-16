@@ -1,0 +1,22 @@
+<div class="form">
+        <h1>Produto</h1>
+        <div class="row">
+            <div class="inputEmail">
+                <input type="text" id="fname" name="firstname" placeholder="Nome do produto"  value="{{prod.nome_produto}}"  #name required>
+            </div>
+        </div>
+        <div class="row">
+            <input type="text" value="{{prod.id}}" class="hidden" #id>
+            <div class="inputEmail">
+                <input type="number" id="lname" name="lastname" placeholder="Preço"  value="{{prod.preco_produto}}" #preco>
+            </div>
+        </div>
+        <div class="row">
+            <div class="inputEmail">
+                <textarea id="subject" name="subject" placeholder="Caracteristicas, detalhe o seu produto"
+                    style="height:100px;"  #desc>{{prod.desc_produto}}</textarea>
+            </div>
+        </div>
+        <div class="col-75">
+            <button mat-button class="btnLogin" (click)="editar(name,preco,desc,id)">Editar</button>
+        </div>

@@ -20,6 +20,13 @@ import { Erro404Component } from './erro404/erro404.component';
 import { TopBarMenuComponent } from './top-bar-menu/top-bar-menu.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import {ServicoProduto} from './produto.service';
+import {MatIconModule} from '@angular/material/icon';
+import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
 
 
 @NgModule({
@@ -31,7 +38,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     PainelProdutoComponent,
     Erro404Component,
     TopBarMenuComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CadastrarComponent,
+    ProdutoEditComponent
   ],
   imports: [
     BrowserModule,
@@ -45,10 +54,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    MatListModule,
+    MatDividerModule,
+    MatIconModule
 
   ],
-  providers: [],
+  providers: [ServicoProduto],
+  entryComponents: [ ProdutoEditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

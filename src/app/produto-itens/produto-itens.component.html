@@ -1,11 +1,12 @@
-<div class="divp">
+<div class="divp" *ngFor="let c of produtos">
     <div>
         <img class="img" src="../../assets/download (1).png" alt="asd" />
     </div>
 
     <div class="contents">
-        <h3>Preco</h3>
-        <p>daçsdçlasdlasçldkaçsdkçalsdçlasdçlaçldaçlsdçalsdkçlaksdçlaksdçlaksçdl</p>
+        <h3>{{c.nome_produto}}</h3>
+        <p>R$:{{c.preco_produto}}</p>
+        <p>{{c.desc_produto}}</p>
         <button (click)="clicar()">Comparar</button>
     </div>
 </div>

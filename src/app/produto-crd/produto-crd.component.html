@@ -1,22 +1,51 @@
-<div class="container">
-    <h1>Produto</h1>
-    <div class="row">
-        <div class="col-75">
-            <input type="text" id="fname" name="firstname" placeholder="Nome do produto" #nome>
+<mat-tab-group class="test">
+    <mat-tab label="Cadastrar">
+        <div class="form">
+            <h1>Produto</h1>
+            <div class="row">
+                <div class="inputEmail">
+                    <input type="text" id="fname" name="firstname" placeholder="Nome do produto" #nome>
+                </div>
+            </div>
+            <div class="row">
+                <div class="inputEmail">
+                    <input type="number" id="lname" name="lastname" placeholder="Preço" #preco>
+                </div>
+            </div>
+            <div class="row">
+                <div class="inputEmail">
+                    <textarea id="subject" name="subject" placeholder="Caracteristicas, detalhe o seu produto"
+                        style="height:100px;" #desc></textarea>
+                </div>
+            </div>
+            <div class="col-75">
+                <button mat-button class="btnLogin" (click)="cadastrar(nome,preco,desc)   ">Cadastrar</button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-75">
-            <input type="number" id="lname" name="lastname" placeholder="Preço" #preco>
+    </mat-tab>
+    <mat-tab label="listar">
+        <div class="listaProdutos">
+            <table>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>descrição</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+                <tr *ngFor="let c of produtos">
+                    <td>{{c.nome_produto}}</td>
+                    <td>R$:{{c.preco_produto}}</td>
+                    <td>{{c.desc_produto}}</td>
+                    <td><button mat-button class="btnEdit" (click)="btnEditar(c.id,c.nome_produto,c.preco_produto,c.desc_produto)">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></button>
+                    </td>
+                    <td>
+                        <button mat-button class="btnExcluir" (click)="btnExcluir(c.id)">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></button>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-75">
-            <textarea id="subject" name="subject" placeholder="Caracteristicas, detalhe o seu produto"
-                style="height:100px;" #desc></textarea>
-        </div>
-    </div>
-    <div class="col-75">
-        <button class="btnCadastrar" (click)="cadastrar(nome,preco,desc)   ">Cadastrar</button>
-    </div>
-</div>
+    </mat-tab>
+</mat-tab-group>

@@ -1,100 +1,82 @@
-* {
-    box-sizing: border-box;
+.form{
+  background-color: rgb(239, 241, 238);
+  height: auto;
+  width: auto;
+  padding: 1px;
+  text-align: center;
+  //margin-left: 2px;
+  //margin-top: 10%;
+  border-radius: 5px;
+  h2{
+      margin-top: 10px;
+      font-weight: bold;
+      margin-bottom: 40px;
   }
-  
-  input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+  .btnLogin{
+      background-color: #428bca;
+      width: 80%;
+      margin-bottom: 20px;
   }
-    
-  
-input[type=number], select, textarea {
-    margin-top: 5px;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
+  .inputEmail{
+      margin-bottom: 9px;
+      padding: 5px;
   }
-  
-  
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
+  .inputPass{
+      margin-bottom: 9px;
+      padding: 5px;
   }
-  
-  input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
+  input[type=text],[type=number]{
+      width: 80%;
+      padding: 5px;
+      padding-left: 19px;
   }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
+  textarea{
+    width: 80%;
+      padding: 5px;
+      padding-left: 19px;
   }
-  
-  .container {
-    border-radius: 5px;
-    
-    padding: 20px;
-  }
-  
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  h1{
-    position: relative;
-   
-  }
+}
 
-  .btnCadastrar{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: 20px;
-    background-color: #5cb85c;
-    border-radius: 5px;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
-    position: relative;
-    border: 0px;
-    width: 100px;
-    height: 30px;
-   }   
+.test{
+  width: auto;
+  border: 1px solid black;
+}
+.listaProdutos{
+ 
+  height: auto;
+  width: auto;
+  padding: 15px;
+  text-align: center;
+  
+  
+  border-radius: 5px;
+}
+.btnEdit{
+  background-color: #428bca;
+}
+.btnExcluir{
+  background-color:#d9534f;
+}
 
-   .btnCadastrar:hover{
-       border: 1px black solid;
-   }
-   .btnCadastrar:active {
-    opacity: 0.8;
-   }
+.listItem{
+  margin-top: 1px;
+  text-align: left;
+  padding-left: 5px;
+  margin-bottom: 15px;
+}
+.hidden{
+  display: none;
+}
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
 
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
