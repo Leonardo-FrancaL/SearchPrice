@@ -29,6 +29,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
 import {MatSelectModule} from '@angular/material/select';
 import {CategoriaService} from './categoria.service';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import {CategoriaService} from './categoria.service';
     MatListModule,
     MatDividerModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatChipsModule
 
   ],
   providers: [ServicoProduto,CategoriaService],

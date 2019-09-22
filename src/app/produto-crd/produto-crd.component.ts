@@ -6,6 +6,7 @@ import { ProdutoEditComponent } from '../produto-edit/produto-edit.component';
 import { Especificacao } from '../model/especific';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { CategoriaService } from '../categoria.service';
+import { Categoria } from '../model/Categoria';
 
 @Component({
   selector: 'app-produto-crd',
@@ -24,6 +25,8 @@ export class ProdutoCrdComponent implements OnInit {
   imagePreview:string;
   aresp:Array<any>;
   categorias:Array<any>;
+  categoriaSelecionada="-";
+  
 
   ngOnInit() {
     this.apiSer.getProdutos().subscribe(dados=>this.produtos = dados);
@@ -84,15 +87,27 @@ export class ProdutoCrdComponent implements OnInit {
     console.log("Asd")
     this.apiSer.uploadImageProduto(this.selectFile);
   }
-  cadastrar(name, prec, des) {
+  cadastrar(name, prec, des,linkSite) {
     
+    let cat = new Categoria();
 
     this.prod.nome_produto = name.value;
     this.prod.preco_produto = prec.value;
     this.prod.desc_produto = des.value;
     this.prod.especfiEspecificacoes = this.aresp;
+    this.prod.linkSite = linkSite.value;
+    this.apiCat.getCategoria(Number(this.categoriaSelecionada)).subscribe(dados => {
+      cat = dados;
+      this.prod.categoria = cat;
+      console.log(JSON.stringify(cat));
+      this.apiSer.addProduto(JSON.stringify(this.prod)).subscribe(r=>alert("Produto :" + r.nome_produto + " foi cadastrado com sucesso"));
+      console.log(JSON.stringify(this.prod))
+    })
     
-    /*this.apiSer.addProduto(JSON.stringify(this.prod)).subscribe(r=>alert("Produto :" + r.nome_produto + " foi cadastrado com sucesso"));
+    
+    
+    
+   /* 
 
     name.value = "";
     prec.value = "";
@@ -102,9 +117,10 @@ export class ProdutoCrdComponent implements OnInit {
     //console.log(JSON.stringify(this.prod))
     this.atualizarlista();
 
-    this.prod = null;*/
-
-    console.log(JSON.stringify(this.prod))
+    this.prod = null;
+*/
+    //console.log(JSON.stringify(this.prod))
+    
   }
 
   btnExcluir(id){

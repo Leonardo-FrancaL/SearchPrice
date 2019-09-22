@@ -1,36 +1,58 @@
 <app-top-bar-menu></app-top-bar-menu>
 <div class="topProdExample">
-    <div class="prodImage">
-
+    <span class="prodImage">
+        <img class="img" src="../../assets/download (1).png" alt="Imagem do produto" height="200px;" />
+    </span>
+    <div class="tpDiv">
+        <span class="ProdNome">
+            <h2>{{produto.nome_produto}}</h2>
+        </span>
+        <div>
+            avaliações media
+        </div>
+        <div class="proPreco">
+            <p>A partir de </p>
+           <label class="precoLabel"> R$: {{produto.preco_produto}}</label>
+        </div>
+        <div class="especific">
+                <div *ngFor="let spec of produto.especfiEspecificacoes" >
+            
+                        <mat-chip-list aria-label="Fish selection">
+                                <mat-chip>
+                                        {{spec.titulo}} :
+                                        {{spec.descTitulo}}
+                                    </mat-chip>
+                        </mat-chip-list>
+            
+                    </div>
+        </div>
+        <div>
+                <button mat-button class="btnIrLoja" (click)="goToStore(produto.linkSite)">Ir para a Loja</button>
+        </div>
     </div>
-    <span class="ProdNome">
-
-    </span>
-    <span class="proPreco">
-
-    </span>
+    
 </div>
 <div class="othersProd">
     <div class="bottomProdExample">
         <div class="Item">
             <span class="ImgProdDiv">
-                <img class="img" src="../../assets/download (1).png" alt="Imagem do produto" class="imgProd"/>
+                <img class="img" src="../../assets/download (1).png" alt="Imagem do produto" class="imgProd" />
             </span>
             <span class="ImgLojaDiv">
-                <img class="img" src="../../assets/download (1).png" alt="Imagem da loja" class="imgProd"/>
+                <img class="img" src="../../assets/download (1).png" alt="Imagem da loja" class="imgProd" />
             </span>
             <div class="a">
-                
-            <div class="preco">
-                <label> A vista R$ 00.00</label>
-             </div>
-             <div class="btnIrLojaSpan">
-                 <button mat-button class="btnIrLoja">Ir para a Loja</button>
-             </div>
-             <hr>
+
+                <div class="preco">
+                    <label> A vista R$ 00.00</label>
+                </div>
+                <div class="btnIrLojaSpan">
+                    <button mat-button class="btnIrLoja" (click)="goToStore(produto.linkSite)">Ir para a Loja</button>
+                </div>
+                <hr>
             </div>
         </div>
 
-        
+
     </div>
 </div>

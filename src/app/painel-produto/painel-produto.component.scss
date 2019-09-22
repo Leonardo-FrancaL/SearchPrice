@@ -1,9 +1,22 @@
 .topProdExample{
-    height: 400px;
+    height: auto;
     background-color: white;
     color: black;
+    padding: 20px;
+    margin-left: 25%;
+}
+.tpDiv{
+    display: inline-block;
+    margin-left: 50px;
+}
+.especific{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
+span{
+    display: inline-block;
+}
 .othersProd{
     padding: 20px;
     height: 600px;
@@ -38,4 +51,10 @@
     }
     
     
+}
+.btnIrLoja{
+    background-color: #5cb85c;
+}
+.btnIrLojaSpan{
+    display: inline-block;
 }

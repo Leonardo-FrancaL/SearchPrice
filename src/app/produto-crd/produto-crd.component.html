@@ -21,6 +21,11 @@
             </div>
             <div class="row">
                 <div class="inputEmail">
+                    <input type="text" id="lname" name="lastname" placeholder="Link do produto" #linkSite>
+                </div>
+            </div>
+            <div class="row">
+                <div class="inputEmail">
                     <textarea id="subject" name="subject" placeholder="Caracteristicas, detalhe o seu produto"
                         style="height:100px;" #desc></textarea>
                 </div>
@@ -28,7 +33,7 @@
             <div class="row">
                 <mat-form-field class="s">
                     <mat-label>Categoria</mat-label>
-                    <mat-select>
+                    <mat-select  [(value)]="categoriaSelecionada">
                         <mat-option *ngFor="let c of categorias" [value]="c.id">
                         {{c.descricao}}
                         </mat-option>
@@ -45,7 +50,7 @@
                 <button mat-button (click)="addEspecificacao(titulo,desc)"><mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon></button>
             </div>
             <div class="col-75">
-                <button mat-button class="btnLogin" (click)="cadastrar(nome,preco,desc)   ">Cadastrar</button>
+                <button mat-button class="btnLogin" (click)="cadastrar(nome,preco,desc,linkSite)   ">Cadastrar</button>
             </div>
         </div>
     </mat-tab>

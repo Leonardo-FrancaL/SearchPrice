@@ -19,7 +19,9 @@ export class ProdutoItensComponent implements OnInit {
   }
 
 
-  clicar(){ 
-    this.router.navigate(['produtoSpec']);
+  clicar(d){ 
+    
+    this.router.navigate(['produtoSpec/'],
+    {queryParams:{id:d}});
   }
 }

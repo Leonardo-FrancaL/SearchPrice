@@ -27,6 +27,14 @@ export class CategoriaService {
       );
   }
 
+  getCategoria(id: number): Observable<Categoria> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<Categoria>(url).pipe(
+      tap(_ => console.log(`leu o produto id=${id}`)),
+      catchError(this.handleError<Categoria>(`getProduto id=${id}`))
+    );
+  }
+
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
