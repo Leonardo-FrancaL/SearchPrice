@@ -19,6 +19,8 @@ export class ServicoProduto {
 
   constructor(private http: HttpClient) { }
 
+
+
   getProdutos (): Observable<Produto[]> {
     return this.http.get<Produto[]>(apiUrl+'s')
       .pipe(
@@ -40,6 +42,20 @@ export class ServicoProduto {
       // tslint:disable-next-line:no-shadowed-variable
       tap((produto: Produto) => console.log(`adicionou o produto com`)),
       catchError(this.handleError<Produto>('addProduto'))
+    );
+  }
+
+  
+  uploadImageProduto(img:File){
+    const options = {
+      headers: new HttpHeaders({'Content-Type': 'image/*',
+      'Access-Control-Allow-Origin':'*'})
+    };
+    let ur = "http://localhost:8080/api/send";
+    return this.http.post(ur,img,options)
+    .pipe(
+      tap(res =>console.log("ok")),
+      catchError(this.handleError('not ok'))
     );
   }
 

@@ -3,6 +3,13 @@
         <div class="form">
             <h1>Produto</h1>
             <div class="row">
+                <div>
+                    <img [src]="imagePreview" alt="" width="300px" height="200px">
+
+                </div>
+            </div>
+            <div class="row">
+                <input type="file" (change)="onFileUpload($event)" id="imgUp">
                 <div class="inputEmail">
                     <input type="text" id="fname" name="firstname" placeholder="Nome do produto" #nome>
                 </div>
@@ -17,6 +24,25 @@
                     <textarea id="subject" name="subject" placeholder="Caracteristicas, detalhe o seu produto"
                         style="height:100px;" #desc></textarea>
                 </div>
+            </div>
+            <div class="row">
+                <mat-form-field class="s">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let c of categorias" [value]="c.id">
+                        {{c.descricao}}
+                        </mat-option>
+                        </mat-select>
+                    
+                </mat-form-field>
+            </div>
+            <div class="espcs" id="espcs">
+
+            </div>
+            <div class="row" id="rowEspec">
+                <input type="" placeholder="Titulo Especificação" class="leftInput" #titulo>
+                <input type="" placeholder="Especificação" class="rightInput" #desc>
+                <button mat-button (click)="addEspecificacao(titulo,desc)"><mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon></button>
             </div>
             <div class="col-75">
                 <button mat-button class="btnLogin" (click)="cadastrar(nome,preco,desc)   ">Cadastrar</button>
@@ -37,12 +63,15 @@
                     <td>{{c.nome_produto}}</td>
                     <td>R$:{{c.preco_produto}}</td>
                     <td>{{c.desc_produto}}</td>
-                    <td><button mat-button class="btnEdit" (click)="btnEditar(c.id,c.nome_produto,c.preco_produto,c.desc_produto)">
-                        <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon></button>
+                    <td><button mat-button class="btnEdit"
+                            (click)="btnEditar(c.id,c.nome_produto,c.preco_produto,c.desc_produto)">
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                        </button>
                     </td>
                     <td>
                         <button mat-button class="btnExcluir" (click)="btnExcluir(c.id)">
-                            <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></button>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                        </button>
                     </td>
                 </tr>
             </table>

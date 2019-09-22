@@ -15,6 +15,7 @@
   .btnLogin{
       background-color: #428bca;
       width: 80%;
+      margin-top: 20px;
       margin-bottom: 20px;
   }
   .inputEmail{
@@ -22,7 +23,7 @@
       padding: 5px;
   }
   .inputPass{
-      margin-bottom: 9px;
+      margin-bottom: 2px;
       padding: 5px;
   }
   input[type=text],[type=number]{
@@ -36,7 +37,26 @@
       padding-left: 19px;
   }
 }
+.s{
+  width: 80%;
+}
 
+.leftInput { 
+  width: 30%;
+  padding: 5px;
+  margin-right: 20px;
+  margin-bottom: 9px;
+}
+.rightInput{
+  width: 30%;
+  padding: 5px;
+  margin-bottom: 9px;
+}
+.btnFoto{
+  position: relative;
+  height: 200px;
+  width: 300px;
+}
 .test{
   width: auto;
   border: 1px solid black;
@@ -79,4 +99,11 @@ table {
 
 th, td {
   padding: 15px;
+}
+.labelEspec{
+  color: black;
+}
+.espcs{
+  font-size: 10pt;
+  font-weight: bold;
 }

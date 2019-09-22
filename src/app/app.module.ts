@@ -27,6 +27,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {ServicoProduto} from './produto.service';
 import {MatIconModule} from '@angular/material/icon';
 import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
+import {MatSelectModule} from '@angular/material/select';
+import {CategoriaService} from './categoria.service';
 
 
 @NgModule({
@@ -58,10 +60,11 @@ import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
     MatTabsModule,
     MatListModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
 
   ],
-  providers: [ServicoProduto],
+  providers: [ServicoProduto,CategoriaService],
   entryComponents: [ ProdutoEditComponent],
   bootstrap: [AppComponent]
 })
