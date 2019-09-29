@@ -15,46 +15,49 @@ const apiUrl = "http://localhost:8080/user/usuarios";
 })
 export class ApiService {
 
+  /*Classe responsavel por cadastrar o Usuario,
+  */
+
   constructor(private http: HttpClient) { }
 
-  getProdutos (): Observable<Usuario[]> {
+  getUsuarios (): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(apiUrl)
       .pipe(
         tap(produtos => console.log('leu os Usuario')),
-        catchError(this.handleError('getProdutos', []))
+        catchError(this.handleError('getUsuario', []))
       );
   }
 
-  getProduto(id: number): Observable<Usuario> {
+  getUsuario(id: number): Observable<Usuario> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<Usuario>(url).pipe(
       tap(_ => console.log(`leu o Usuario id=${id}`)),
-      catchError(this.handleError<Usuario>(`getProduto id=${id}`))
+      catchError(this.handleError<Usuario>(`Usuario id=${id}`))
     );
   }
 
-  addProduto (produto): Observable<Usuario> {
+  addUsuario (produto): Observable<Usuario> {
     return this.http.post<Usuario>(apiUrl, produto, httpOptions).pipe(
       // tslint:disable-next-line:no-shadowed-variable
       tap((produto: Usuario) => console.log(`adicionou o produto com w/ id=${produto.getEmail}`)),
-      catchError(this.handleError<Usuario>('addProduto'))
+      catchError(this.handleError<Usuario>('addUsuario'))
     );
   }
 
-  updateProduto(email, produto): Observable<any> {
+  updateUsuario(email, produto): Observable<any> {
     const url = `${apiUrl}/${email}`;
     return this.http.put(url, produto, httpOptions).pipe(
       tap(_ => console.log(`atualiza o Usuario com id=${email}`)),
-      catchError(this.handleError<any>('updateProduto'))
+      catchError(this.handleError<any>('updateUsuario'))
     );
   }
 
-  deleteProduto (email): Observable<Usuario> {
+  deleteUsuario (email): Observable<Usuario> {
     const url = `${apiUrl}/delete/${email}`;
 
     return this.http.delete<Usuario>(url, httpOptions).pipe(
-      tap(_ => console.log(`remove o produto com id=${email}`)),
-      catchError(this.handleError<Usuario>('deleteProduto'))
+      tap(_ => console.log(`remove o Usuario com id=${email}`)),
+      catchError(this.handleError<Usuario>('delete Usuario'))
     );
   }
 

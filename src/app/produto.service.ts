@@ -19,7 +19,7 @@ export class ServicoProduto {
 
   constructor(private http: HttpClient) { }
 
-
+/*Pega os produtos cadastrados, Insere produdos , Atualiza, um CRUD completo*/
 
   getProdutos (): Observable<Produto[]> {
     return this.http.get<Produto[]>(apiUrl+'s')

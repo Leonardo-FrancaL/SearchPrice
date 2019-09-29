@@ -18,6 +18,8 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
+  /*Pega as categorias cadastradas*/
+
   
   getCategorias (): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(apiUrl)

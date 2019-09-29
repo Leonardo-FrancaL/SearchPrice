@@ -15,12 +15,19 @@ export class PainelProdutoComponent implements OnInit {
 
   produto:Produto;
 
+  //Ao iniciar pega o parametro que no caso é um ID do produto, faz a consulta e o exibie na tela 
   ngOnInit() {
    let id = this.route.snapshot.queryParams['id'];
    this.apiProd.getProduto(id).subscribe(dados=> this.produto = dados);
   }
 
 
+  //Essa função vai mostrar o mesmo produto só que de outras lojas para fazer o comparativo entre preços 
+  //Ainda está sendo trabalhado o SCSS da pagina por isso não vai ser implementado no momento 
+  prodRelacionadosComparativo(){
+
+  }
+  //Vai para o site do produto
   goToStore(link){
     window.location.href =link;
   }

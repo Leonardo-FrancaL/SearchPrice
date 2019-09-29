@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  
+  /*O login tem que ser trabalhado no banckend primeiro*/
   user:Array<any>;
   constructor() { }
 

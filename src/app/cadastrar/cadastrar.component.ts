@@ -11,12 +11,17 @@ import { Router } from '@angular/router';
 })
 export class CadastrarComponent implements OnInit {
 
+  /*Classe responsável por cadastrar e validar o login,
+  O login tem que ser finalizado no backend primeiro
+  so então o metodo de login será Implementado*/
   user:Usuario;
   constructor(private http: HttpClient,private router: Router) { }
 
   ngOnInit() {
+
   }
 
+  
   cadastrar(email,senha,nomeEmp,link){
     this.user = new Usuario();
 

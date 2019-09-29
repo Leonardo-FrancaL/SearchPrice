@@ -14,6 +14,7 @@ export class TopBarMenuComponent implements OnInit {
   }
 
 
+  //Manda para a tela de login 
   logarBtn(){
     this.router.navigate(['login']);
   }

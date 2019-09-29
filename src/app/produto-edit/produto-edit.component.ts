@@ -10,7 +10,7 @@ import { ServicoProduto } from '../produto.service';
 })
 export class ProdutoEditComponent implements OnInit {
 
-  
+  //Através do atributo prod, mostra os recebidos da outra tela e os exibe na tela para poder editar
   constructor(public dialogRef: MatDialogRef<ProdutoEditComponent>,@Inject(MAT_DIALOG_DATA) public prod:Produto,private apiSer:ServicoProduto) { 
     
   }
@@ -18,6 +18,7 @@ export class ProdutoEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Edita o produto
   editar(nome,preco,desc,id){
     let prod = new Produto();
 

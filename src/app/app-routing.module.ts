@@ -9,6 +9,7 @@ import { ProdutoCrdComponent } from './produto-crd/produto-crd.component';
 
 
 const routes: Routes = [
+  //Parte responsável pela rota do sistema
   { path: 'produtoSpec', component:PainelProdutoComponent},
   {path: 'produtos', component:MenuTopBarComponent},
   {path: 'login',component:LoginPageComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: '', redirectTo:'/produtos', pathMatch:'full'},
   {path:'cadastrarProduto',component:ProdutoCrdComponent},
   {path: 'cadastrar', component:CadastrarComponent},
+  //Caso o caminho não exista retorna para o 404
   {path:'**',redirectTo:'404'}
 ];
 
