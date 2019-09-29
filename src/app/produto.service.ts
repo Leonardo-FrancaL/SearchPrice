@@ -46,13 +46,13 @@ export class ServicoProduto {
   }
 
   
-  uploadImageProduto(img:File){
-    const options = {
-      headers: new HttpHeaders({'Content-Type': 'image/*',
-      'Access-Control-Allow-Origin':'*'})
-    };
-    let ur = "http://localhost:8080/api/send";
-    return this.http.post(ur,img,options)
+  uploadImageProduto(img:File,id){
+    
+    const formData = new FormData();
+    formData.append('foto', img);
+
+    let ur = "http://localhost:8080/api/send/"+id;
+    return this.http.post(ur,formData)
     .pipe(
       tap(res =>console.log("ok")),
       catchError(this.handleError('not ok'))

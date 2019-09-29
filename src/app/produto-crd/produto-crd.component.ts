@@ -20,7 +20,7 @@ export class ProdutoCrdComponent implements OnInit {
     this.imagePreview ="../../assets/no-image-available-icon-6.jpg";
   }
   
-  prod:Produto;
+ 
   produtos:Array<any>;
   selectFile:File;
   imagePreview:string;
@@ -33,7 +33,7 @@ export class ProdutoCrdComponent implements OnInit {
   ngOnInit() {
     this.apiSer.getProdutos().subscribe(dados=>this.produtos = dados);
     this.apiCat.getCategorias().subscribe(dados=>this.categorias=dados);
-    this.prod = new Produto();
+    
     console.log(this.produtos)
     this.aresp = new Array<any>();
   }
@@ -63,7 +63,7 @@ export class ProdutoCrdComponent implements OnInit {
        this.imagePreview = reader.result as string;
       } 
       this.selectFile = event.target.files[0];  
-      this.upLoadFile();   
+     
     }
   }
 
@@ -71,11 +71,11 @@ export class ProdutoCrdComponent implements OnInit {
   * o titulo e a descrição sera adicionados em um array e depois colocados em label
   * o nome do array e aresp(global)
   */
-  addEspecificacao(titulo,desc){
+  addEspecificacao(titulo,descT){
     //Estancia um objeto especificacao
       let esp = new Especificacao();
       //Obtem o a descricao da especificação
-      esp.descTitulo = desc.value;
+      esp.descTitulo = descT.value;
       //Obtem o titulo da especificação
       esp.titulo = titulo.value;
       
@@ -91,7 +91,7 @@ export class ProdutoCrdComponent implements OnInit {
 
       //adiciona o texto nos labels
       let textNode =  document.createTextNode(titulo.value + ' : ');
-      let textNode1 = document.createTextNode(desc.value);
+      let textNode1 = document.createTextNode(descT.value);
       label1.appendChild(textNode);
       label2.appendChild(textNode1);
        
@@ -103,29 +103,31 @@ export class ProdutoCrdComponent implements OnInit {
 
       //Limpa o valor dos inputs
       titulo.value = "";
-      desc.value = "";
+      descT.value = "";
       
   }
 
   //Manda a imagem para o backend
-  upLoadFile(){
-    this.apiSer.uploadImageProduto(this.selectFile);
-    console.log("Asd")
-    this.apiSer.uploadImageProduto(this.selectFile);
+  upLoadFile(id){
+    this.apiSer.uploadImageProduto(this.selectFile,id).subscribe(dados=>{
+      
+    });
+    
+    
   }
 
   //Função responsável por cadastrar os produtos
   cadastrar(name, prec, des,linkSite) {
-    
+    let prod = new Produto();
     //Cria uma categoria 
     let cat = new Categoria();
     //Nesse bloco é adicionado os valores do produto
     //Prod é uma variavel global tb 
-    this.prod.nome_produto = name.value;
-    this.prod.preco_produto = prec.value;
-    this.prod.desc_produto = des.value;
-    this.prod.especfiEspecificacoes = this.aresp;
-    this.prod.linkSite = linkSite.value;
+    prod.nome_produto = name.value;
+    prod.preco_produto = prec.value;
+    prod.desc_produto = des.value;
+    prod.especfiEspecificacoes = this.aresp;
+    prod.linkSite = linkSite.value;
     
     //Pega a cagoria por id (requisição no backend )
     this.apiCat.getCategoria(Number(this.categoriaSelecionada)).subscribe(dados => {
@@ -133,24 +135,22 @@ export class ProdutoCrdComponent implements OnInit {
 
       //Apos pegar a categoria no backend , e feito o cadastro do produto
       //Enviando o JSON para o backend
-      this.prod.categoria = cat;
+      prod.categoria = cat;
       
-      this.apiSer.addProduto(JSON.stringify(this.prod)).subscribe(r=>alert("Produto :" + r.nome_produto + " foi cadastrado com sucesso"));
-      this.atualizarlista();  
+      this.apiSer.addProduto(JSON.stringify(prod)).subscribe(r=>{
+        prod = r;
+        this.upLoadFile(r.id);
+        alert("Produto :" + prod.nome_produto  + " cadastrado com sucesso !.")
+        console.log(JSON.stringify(prod))
+        name.value = "";
+        prec.value = "";
+        des.value = "";
+        this.atualizarlista();  
+      });
+      
     })
     
     //Bloco de codigo utilizado para teste
-   /*
-    name.value = "";
-    prec.value = "";
-    des.value = "";
-    //console.log(this.apiSer.teste(JSON.stringify(this.prod)))
-   // this.apiSer.getProdutos().subscribe(r=>console.log(r));
-    //console.log(JSON.stringify(this.prod))
-    this.atualizarlista();
-
-    this.prod = null;
-*/
     //console.log(JSON.stringify(this.prod))
     
   }

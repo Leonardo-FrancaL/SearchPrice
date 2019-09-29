@@ -1,6 +1,6 @@
 <div class="divp" *ngFor="let c of produtos">
     <div>
-        <img class="img" src="../../assets/download (1).png" alt="asd" />
+        <img class="img" [src]="teste(c)" alt="asd" #img/>
     </div>
 
     <div class="contents">

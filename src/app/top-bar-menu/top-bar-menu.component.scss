@@ -7,18 +7,19 @@
         margin-right: 5px;
         
     }
-    .btnEntrar{
-        margin-left: 5px;
-        background-color:#5cb85c;
-    }
+    
    
+}
+.btnEntrar{
+    margin-left: 5px;
+    background-color:#5cb85c;
 }
 .cor{
     background-color: rgb(97, 42, 146);
     color: white;
     width: 100%;
     margin-top: -10px;
-    margin-left: -10px;
+    margin-left: 0px;
     
 }
 .logo{
@@ -53,4 +54,33 @@ input[type=search] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
   }
-  
+  @media only screen and (max-width: 1024px) {
+    .serachdivDIV{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .logo{
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 20px;
+    }
+    .btnEntrar{
+        position: absolute;
+        background-color:#5cb85c;
+        top: 0;
+        right: 40px;
+        
+    }
+    input[type=search] {
+        left: 0px;
+        width: 60%;
+    }
+    .pes{
+        position: absolute;
+        right: 40px;
+    }
+    .cor{
+        height: 158px;
+    }
+  }

@@ -9,5 +9,9 @@ export class Produto {
     categoria:Categoria;
     linkImg:string;
     linkSite:string;
+    picture:any;
+
+
+    
     
   }

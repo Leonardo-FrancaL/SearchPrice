@@ -33,6 +33,17 @@
         }
     }
     img{
-        width: 99%;
-        height: 20%;
+        width: 350px;
+        
+        height: 250px;
     }
+@media only screen and (max-width: 1024px) {
+        .img{
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        .divp{
+            width: 60%;
+        }
+}

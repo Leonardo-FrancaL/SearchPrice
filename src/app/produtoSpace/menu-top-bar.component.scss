@@ -9,3 +9,13 @@
   .cent{
       text-align: center;
   }
+
+  @media only screen and (max-width: 1024px) {
+    .divProdutos{
+        margin-left:0px;
+    }
+    .cent{
+      width: 80%;
+      text-align: center;
+    }
+  }
