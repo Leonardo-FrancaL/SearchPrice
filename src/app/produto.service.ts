@@ -69,10 +69,10 @@ export class ServicoProduto {
     return resp;
   }*/
 
-  updateProduto(id, produto): Observable<any> {
-    const url = `${apiUrl}`;
+  updateProduto(produto): Observable<any> {
+    const url = apiUrl;
     return this.http.put(url, produto, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o produco com id=${id}`)),
+      tap(_ => console.log(`atualiza o produco com id=`)),
       catchError(this.handleError<any>('updateProduto'))
     );
   }

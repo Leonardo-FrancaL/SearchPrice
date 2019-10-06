@@ -1,0 +1,56 @@
+<mat-tab-group class="test">
+    <mat-tab label="Cadastrar">
+        <div class="form">
+            <h1>Cadastro de oferta</h1>
+            <div class="row">
+                
+            </div>
+            <div class="row">
+                <div class="inputEmail">
+                    <input type="number" id="lname" name="lastname" placeholder="Preço" #preco>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="inputEmail">
+                        <input type="text" id="lname" name="lastname" placeholder="Link da oferta" #linkOf>
+                    </div>
+                </div>
+        
+            <div class="row">
+                <div class="inputEmail">
+                    <textarea id="subject" name="subject" placeholder="Descrição da oferta."
+                        style="height:100px;" #desc></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <mat-form-field class="s">
+                    <mat-label>Site</mat-label>
+                    <mat-select  [(value)]="empresaSelecionada">
+                        <mat-option *ngFor="let d of empresas" [value]="d.id">
+                        {{d.nomeSite}}
+                        </mat-option>
+                        </mat-select>
+                    
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="s">
+                    <mat-label>Produto</mat-label>
+                    <mat-select  [(value)]="prodSelecionado">
+                        <mat-option *ngFor="let c of produtos" [value]="c.id">
+                        {{c.nome_produto}}
+                        </mat-option>
+                        </mat-select>
+                    
+                </mat-form-field>
+            </div>
+            
+            <div class="col-75">
+                <button mat-button class="btnLogin" (click)="salvarOferta(preco,desc,linkOf)   ">Cadastrar</button>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="listar">
+        
+    </mat-tab>
+</mat-tab-group>

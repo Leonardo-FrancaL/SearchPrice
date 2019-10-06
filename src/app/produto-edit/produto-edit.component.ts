@@ -28,7 +28,7 @@ export class ProdutoEditComponent implements OnInit {
     prod.preco_produto = preco.value;
 
 
-    this.apiSer.updateProduto(id.value,JSON.stringify(prod)).subscribe(r=>console.log("Produto :" + r.nome_produto + " foi atualizado com sucesso"));;
+    this.apiSer.addProduto(prod).subscribe(r=>console.log("Produto :" + r.nome_produto + " foi atualizado com sucesso"));;
     this.dialogRef.close();
   }
 }

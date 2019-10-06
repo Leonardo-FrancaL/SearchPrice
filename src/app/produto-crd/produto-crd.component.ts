@@ -124,7 +124,7 @@ export class ProdutoCrdComponent implements OnInit {
     //Nesse bloco é adicionado os valores do produto
     //Prod é uma variavel global tb 
     prod.nome_produto = name.value;
-    prod.preco_produto = prec.value;
+    //prod.preco_produto = prec.value;
     prod.desc_produto = des.value;
     prod.especfiEspecificacoes = this.aresp;
     prod.linkSite = linkSite.value;

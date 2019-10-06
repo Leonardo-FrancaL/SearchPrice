@@ -19,7 +19,7 @@ span{
 }
 .othersProd{
     padding: 20px;
-    height: 600px;
+    height: auto;
     background-color: rgb(239, 241, 238);
 }
 .bottomProdExample{
@@ -45,12 +45,26 @@ span{
         margin-right: 42%;
         display: inline-block;
         margin-top: 40px;
+        word-wrap: break-word;
+        width: 300px;
+    }
+    .btnPosition{
+        margin-left: 90px;
+        background-color: #5cb85c;
+        display: inline-block;
+        margin-top: 40px;
     }
     .btnIrLojaSpan{
         display: inline-block;
     }
     
     
+}
+
+.descProd{
+    right: 20%;
+    position: absolute;
+    width: 10%;
 }
 .btnIrLoja{
     background-color: #5cb85c;
@@ -64,6 +78,28 @@ span{
     }
     .bottomProdExample{
         margin-left:0px;
-        width: 80%;
+        width: 100%;
+        padding: 0px;
+    }
+    .tpDiv{
+        display: block;
+        margin-left: 0px;
+    }
+    .othersProd{
+        padding: 20px;
+        height: auto;
+        width: 100%;
+    }
+    .imgProd{
+        margin-right:0px;
+    }
+    .preco{
+        margin-left: 0px;
+        display: block;
+        word-wrap: break-word;
+        width: 10px;
+    }
+    .descProd{
+        right:0px;
     }
 }

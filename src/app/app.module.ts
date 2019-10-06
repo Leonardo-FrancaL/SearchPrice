@@ -30,6 +30,8 @@ import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
 import {MatSelectModule} from '@angular/material/select';
 import {CategoriaService} from './categoria.service';
 import {MatChipsModule} from '@angular/material/chips';
+import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
+import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
 
 
 
@@ -44,7 +46,9 @@ import {MatChipsModule} from '@angular/material/chips';
     TopBarMenuComponent,
     LoginPageComponent,
     CadastrarComponent,
-    ProdutoEditComponent
+    ProdutoEditComponent,
+    OfertaCrudComponentComponent,
+    CadastroSiteComponent
   ],
   imports: [
     BrowserModule,

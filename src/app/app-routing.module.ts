@@ -6,6 +6,7 @@ import { Erro404Component } from './erro404/erro404.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { ProdutoCrdComponent } from './produto-crd/produto-crd.component';
+import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: '', redirectTo:'/produtos', pathMatch:'full'},
   {path:'cadastrarProduto',component:ProdutoCrdComponent},
   {path: 'cadastrar', component:CadastrarComponent},
+  {path: 'cadastrarOferta', component:OfertaCrudComponentComponent},
   //Caso o caminho não exista retorna para o 404
   {path:'**',redirectTo:'404'}
 ];
