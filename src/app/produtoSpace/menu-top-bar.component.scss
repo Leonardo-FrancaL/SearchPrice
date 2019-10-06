@@ -9,6 +9,25 @@
   .cent{
       text-align: center;
   }
+  ul{
+    display: inline;
+    list-style:none;
+  }
+  li{
+    display: inline;
+   
+    padding: 20px;
+  }
+  nav{
+    padding:0px;
+    margin:0px;
+    margin-top: 20px;
+    list-style:none;
+    padding: 0px;
+    display: inline-block;
+    border: 1px solid black;
+
+  }
 
   @media only screen and (max-width: 1024px) {
     .divProdutos{

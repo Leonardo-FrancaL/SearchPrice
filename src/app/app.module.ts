@@ -32,7 +32,7 @@ import {CategoriaService} from './categoria.service';
 import {MatChipsModule} from '@angular/material/chips';
 import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
 import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -68,7 +68,8 @@ import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
     MatDividerModule,
     MatIconModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule
 
   ],
   providers: [ServicoProduto,CategoriaService],

@@ -1,6 +1,6 @@
 .divp{
         height: auto;
-        width: 22%;
+        width: auto;
         background-color: white;
         word-wrap: break-word;
         padding: 10px;
@@ -33,8 +33,7 @@
         }
     }
     img{
-        width: 350px;
-        
+        width:350px;
         height: 250px;
     }
 @media only screen and (max-width: 1024px) {
@@ -44,6 +43,6 @@
             height: auto;
         }
         .divp{
-            width: 60%;
+            width: 80%;
         }
 }

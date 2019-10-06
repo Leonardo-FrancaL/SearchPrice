@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaService } from '../categoria.service';
 
 @Component({
   selector: 'app-menu-top-bar',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuTopBarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private apiCat:CategoriaService) { }
+  categorias:Array<any>;
   ngOnInit() {
-    
+    this.apiCat.getCategorias().subscribe(dados=>this.categorias=dados)
   }
 
 }
