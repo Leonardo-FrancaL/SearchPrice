@@ -8,7 +8,11 @@
                 <p>Estamos cada vez com mais novos produtos, clique em um produto e compare com o preço<br> de outras
                         lojas, e aproveite e confira o historico do preço</p>
         </div>
-        
+        <nav class="categorias" *ngFor="let cat of categorias">
+                <ul type="none">
+                        <li>{{cat.descricao}}</li>
+                </ul>
+        </nav>
 </div>
 
 <div class="divProdutos">

@@ -25,7 +25,7 @@ export class PainelProdutoComponent implements OnInit {
    let id = this.route.snapshot.queryParams['id'];
    this.apiProd.getProduto(id).subscribe(dados=> {
     this.produto = dados
-    console.log(JSON.stringify(this.produto))
+    
    });
    
   }

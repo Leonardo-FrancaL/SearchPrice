@@ -32,13 +32,23 @@
             <div class="row">
                 <mat-form-field class="s">
                     <mat-label>Categoria</mat-label>
-                    <mat-select  [(value)]="categoriaSelecionada">
-                        <mat-option *ngFor="let c of categorias" [value]="c.id">
+                    <select matNativeControl (change)="test(te)" #te class="custom-select">
+                        <option>-</option>
+                        <option *ngFor="let c of categorias" [value]="c.id">
                         {{c.descricao}}
-                        </mat-option>
-                        </mat-select>
+                        </option>
+                    </select>
                     
-                </mat-form-field>
+                    </mat-form-field>
+                <mat-form-field class="s">
+                        <mat-label>Sub categoria</mat-label>
+                        <mat-select  [(value)]="subCatSelecionada">
+                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
+                            {{f.descricao}}
+                            </mat-option>
+                            </mat-select>
+                        
+                    </mat-form-field>
             </div>
             <div class="espcs" id="espcs">
                     

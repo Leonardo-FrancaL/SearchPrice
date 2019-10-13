@@ -1,0 +1,63 @@
+.topo{
+    background-color: rgb(97, 42, 146);
+    color: white;
+    width: 100%;
+    margin-top: -10px;
+    height: 40px;
+    padding-top: 25px;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+.btnSair{
+    right: 50px;
+    position: absolute;
+    background-color: red;
+}
+label{
+    font-size: 15pt;
+}
+.testn{
+    font-size: 13pt;
+    
+}
+.testn:active{
+    opacity: 0.5;
+}
+div{
+    display: inline-block;
+}
+ul{
+    list-style:none;
+}
+li{
+    font-size: 15pt;
+    margin-bottom: 12px;
+}
+.menuLateral{
+    height: 850px;
+    width: 350px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    border: 1px solid gray;
+    .divPages{
+        display: inline-block;
+    }
+    margin-right: 5px;
+}
+.pageChargeBack{
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+}
+iframe{
+    width: 100%;
+    right: 0px;
+    margin-right: 25px;
+    display: inline-block;
+}
+.pages{
+    position: absolute;
+    height: auto;
+    width: 80%;
+    display: inline-block;
+}

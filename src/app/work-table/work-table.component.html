@@ -1,0 +1,32 @@
+<div class="topo">
+    <label>{{user.nome}}</label>
+    <button mat-button class="btnSair" (click)="logout()">Sair</button>
+</div>
+
+<div class="pageChargeBack">
+
+    <div class="menuLateral">
+        <ul>
+            <li class="test">
+                    <button mat-button class="testn" (click)="cadProd()">Cadastro de produtos</button>
+            </li>
+            <li>
+                    <button mat-button class="testn" (click)="cadOffer()">Cadastro de ofertas</button>
+            </li>
+            <li>
+                    <button mat-button class="testn" (click)="cadAdm()">Cadastro de administradores</button>
+            </li>
+            <li>
+                    <button mat-button class="testn" (click)="aVlOffer()">Avaliações de Ofertas e produtos</button>
+            </li>
+        </ul>
+    </div>
+    <div class="pages">
+           <!--- <iframe src="about:blank" frameborder="0"  height="800" scrolling="no" name="frame" >
+            </iframe>-->
+            <app-produto-crd [hidden]="!prod"></app-produto-crd>
+            <app-oferta-crud-component [hidden]="!offer"></app-oferta-crud-component>
+    </div>
+ 
+    
+</div>

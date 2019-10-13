@@ -33,6 +33,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
 import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { WorkTableComponent } from './work-table/work-table.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CadastrarComponent,
     ProdutoEditComponent,
     OfertaCrudComponentComponent,
-    CadastroSiteComponent
+    CadastroSiteComponent,
+    WorkTableComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatMenuModule
 
   ],
-  providers: [ServicoProduto,CategoriaService],
+  providers: [ServicoProduto,CategoriaService,AuthGuardService],
   entryComponents: [ ProdutoEditComponent],
   bootstrap: [AppComponent]
 })

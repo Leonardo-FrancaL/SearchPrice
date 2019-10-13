@@ -21,6 +21,16 @@ export class CategoriaService {
   /*Pega as categorias cadastradas*/
 
   
+ 
+
+  getCategoria(id: number): Observable<Categoria> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<Categoria>(url).pipe(
+      tap(_ => console.log(`leu o produto id=${id}`)),
+      catchError(this.handleError<Categoria>(`getProduto id=${id}`))
+    );
+  }
+
   getCategorias (): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(apiUrl)
       .pipe(
@@ -29,11 +39,11 @@ export class CategoriaService {
       );
   }
 
-  getCategoria(id: number): Observable<Categoria> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.get<Categoria>(url).pipe(
-      tap(_ => console.log(`leu o produto id=${id}`)),
-      catchError(this.handleError<Categoria>(`getProduto id=${id}`))
+  getCategoriaFilha(id: number): Observable<Categoria[]> {
+    const url = `${apiUrl+'s'}/${id}`;
+    return this.http.get<Categoria[]>(url).pipe(
+      tap(categorias => console.log('leu as categorias')),
+      catchError(this.handleError<Categoria[]>(`getProduto id=${id}`))
     );
   }
 

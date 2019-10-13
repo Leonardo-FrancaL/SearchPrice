@@ -7,6 +7,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { ProdutoCrdComponent } from './produto-crd/produto-crd.component';
 import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
+import { WorkTableComponent } from './work-table/work-table.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 const routes: Routes = [
@@ -15,10 +17,23 @@ const routes: Routes = [
   {path: 'produtos', component:MenuTopBarComponent},
   {path: 'login',component:LoginPageComponent},
   {path:'404', component: Erro404Component},
+  
   {path: '', redirectTo:'/produtos', pathMatch:'full'},
-  {path:'cadastrarProduto',component:ProdutoCrdComponent},
+  {
+    path:'cadastrarProduto',
+    canActivate :[AuthGuardService],
+    component:ProdutoCrdComponent
+  },
   {path: 'cadastrar', component:CadastrarComponent},
-  {path: 'cadastrarOferta', component:OfertaCrudComponentComponent},
+  {
+    path: 'cadastrarOferta', 
+    canActivate :[AuthGuardService],
+    component:OfertaCrudComponentComponent
+  },
+  {
+    path: 'workTable', 
+    canActivate :[AuthGuardService],
+    component:WorkTableComponent},
   //Caso o caminho não exista retorna para o 404
   {path:'**',redirectTo:'404'}
 ];

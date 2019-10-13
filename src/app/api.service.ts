@@ -6,10 +6,10 @@ import {Usuario} from './model/User';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'})
 };
 
-const apiUrl = "http://localhost:8080/user/usuarios";
+const apiUrl = "http://localhost:8080/user/usuario";
 @Injectable({
   providedIn: 'root'
 })
@@ -21,15 +21,23 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getUsuarios (): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(apiUrl)
+    return this.http.get<Usuario[]>(apiUrl+'s')
       .pipe(
-        tap(produtos => console.log('leu os Usuario')),
-        catchError(this.handleError('getUsuario', []))
+        tap(produtos => console.log('leu os Usuarios')),
+        catchError(this.handleError('getUsuarios', []))
       );
   }
 
-  getUsuario(id: number): Observable<Usuario> {
-    const url = `${apiUrl}/${id}`;
+  getUsuario(email: string): Observable<Usuario> {
+    const url = `${apiUrl}/${email}`;
+    return this.http.get<Usuario>(url).pipe(
+      tap(_ => console.log(`leu o Usuario id=${email}`)),
+      catchError(this.handleError<Usuario>(`Usuario id=${email}`))
+    );
+  }
+
+  getUsuarioId(id: number): Observable<Usuario> {
+    const url = `${apiUrl+'i'}/${id}`;
     return this.http.get<Usuario>(url).pipe(
       tap(_ => console.log(`leu o Usuario id=${id}`)),
       catchError(this.handleError<Usuario>(`Usuario id=${id}`))

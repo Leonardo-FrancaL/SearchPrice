@@ -22,13 +22,12 @@ export class CadastrarComponent implements OnInit {
   }
 
   
-  cadastrar(email,senha,nomeEmp,link){
+  cadastrar(email,senha,nomeEmp){
     this.user = new Usuario();
 
     this.user.setEmail(email.value);
     this.user.setSenha(senha.value);
-    this.user.setEmpresa(nomeEmp.value);
-    this.user.setLinkSite(link.value);
+    this.user.nome = nomeEmp.value;
 
 
     var jsonUser = JSON.stringify(this.user);
@@ -38,7 +37,6 @@ export class CadastrarComponent implements OnInit {
     email.value = "";
     senha.value = "";
     nomeEmp.value = "";
-    link.value = "";
 
     const httpOptions = {
       headers: new HttpHeaders({

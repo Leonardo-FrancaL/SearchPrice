@@ -37,8 +37,21 @@
       padding-left: 19px;
   }
 }
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+select{
+  padding: 10px;
+  border-radius: 5px;
+}
 .s{
-  width: 80%;
+  width: 40%;
+  margin-right: 15px;
 }
 
 .leftInput { 
@@ -106,4 +119,8 @@ th, td {
 .espcs{
   font-size: 10pt;
   font-weight: bold;
+}
+
+option{
+  padding: 10px;
 }
