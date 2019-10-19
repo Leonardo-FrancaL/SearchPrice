@@ -20,6 +20,15 @@ export class PainelProdutoComponent implements OnInit {
   teste(prod:Produto){
     return this.sanitizer.bypassSecurityTrustUrl(prod.picture)
   }
+
+  testBugemp(c){
+    if(c.empresa.linkFoto == null || c.empresa.linkFoto == ""){
+      return this.sanitizer.bypassSecurityTrustUrl("http:localhost/no-image-available-icon-6.jpg");
+    }
+    
+  }
+
+  
   //Ao iniciar pega o parametro que no caso é um ID do produto, faz a consulta e o exibie na tela 
   ngOnInit() {
    let id = this.route.snapshot.queryParams['id'];

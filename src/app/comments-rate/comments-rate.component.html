@@ -1,0 +1,28 @@
+<div class="bottomProdExample">
+        <h2 class="aval">Avaliações</h2>
+        <hr>
+    <div class="Item" *ngFor="let oferta of produto.ofertas">
+        <span class="ImgProdDiv">
+            <img class="img" [src]="teste(produto)" alt="Imagem do produto" class="imgProd" />
+        </span>
+        <span class="ImgLojaDiv">
+            <img class="img" [src]="testBugemp(oferta)" alt="Imagem da empresa" class="imgProd" />
+        </span>
+
+        <span>
+            <span class="preco">
+                <label>à vista por <br>R$ {{oferta.offer_valorUni}}</label>
+                <label class="descc"> {{oferta.offer_descricao}}</label>
+                <button mat-button class="btnPosition" (click)="goToStore(oferta.linkOferta)">Ir para a Loja</button>
+            </span>
+
+
+        </span>
+
+
+
+        <hr>
+    </div>
+
+
+</div>

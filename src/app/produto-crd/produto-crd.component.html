@@ -48,10 +48,46 @@
                             </mat-option>
                             </mat-select>
                         
-                    </mat-form-field>
+                </mat-form-field>
+                <mat-form-field class="s">
+                        <mat-label>Sub categoria</mat-label>
+                        <mat-select  [(value)]="subCatSelecionada">
+                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
+                            {{f.descricao}}
+                            </mat-option>
+                            </mat-select>
+                        
+                </mat-form-field>
+                <mat-form-field class="s">
+                        <mat-label>Sub categoria</mat-label>
+                        <mat-select  [(value)]="subCatSelecionada">
+                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
+                            {{f.descricao}}
+                            </mat-option>
+                            </mat-select>
+                        
+                </mat-form-field>
             </div>
             <div class="espcs" id="espcs">
-                    
+                <table [hidden]="!tableEspecs" id="tabela">
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Descrição</th>
+                        <th>Deletar</th>
+                    </tr>
+                    <tr *ngFor="let es of aresp">
+                        <td>
+                            {{es.titulo}}
+                        </td>
+                        <td>
+                            {{es.descTitulo}}
+                        </td>
+                        <td>
+                            <button mat-button (click)="removeEspec(es)"><mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></button>
+                        </td>
+                    </tr>
+             </table>
+                
             </div>
             <div class="row" id="rowEspec">
                 <input type="" placeholder="Titulo Especificação" class="leftInput" #titulo>

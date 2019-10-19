@@ -9,6 +9,9 @@ import { ProdutoCrdComponent } from './produto-crd/produto-crd.component';
 import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
 import { WorkTableComponent } from './work-table/work-table.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { CategoriaCrudComponent } from './categoria-crud/categoria-crud.component';
+import { AdmCrudComponent } from './adm-crud/adm-crud.component';
+import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 
 
 const routes: Routes = [
@@ -33,7 +36,23 @@ const routes: Routes = [
   {
     path: 'workTable', 
     canActivate :[AuthGuardService],
-    component:WorkTableComponent},
+    component:WorkTableComponent
+  },
+  {
+    path:'catWorkFlow',
+    canActivate:[AuthGuardService],
+    component:CategoriaCrudComponent
+  },
+  {
+    path:'admWorkFlow',
+    canActivate:[AuthGuardService],
+    component:AdmCrudComponent
+  },
+  {
+    path:'comments',
+    canActivate:[AuthGuardService],
+    component:CommentsRateComponent
+  },
   //Caso o caminho não exista retorna para o 404
   {path:'**',redirectTo:'404'}
 ];

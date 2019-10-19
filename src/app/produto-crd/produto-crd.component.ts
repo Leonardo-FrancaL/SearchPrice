@@ -31,6 +31,7 @@ export class ProdutoCrdComponent implements OnInit {
   categoriaSelecionada: number;
   subCatSelecionada = "-";
   catsSubs:Array<any>;
+  tableEspecs = false;
 
   /*Ao entrar ele carrega a lista de produtos cadastrados,
   e tambem carrega a checkbox de categoria com as categorias cadastradas */
@@ -49,7 +50,7 @@ export class ProdutoCrdComponent implements OnInit {
     });
 
     console.log(this.produtos)
-    this.aresp = new Array<any>();
+    this.aresp = new Array<Especificacao>();
   }
 
   test(te){
@@ -102,6 +103,7 @@ export class ProdutoCrdComponent implements OnInit {
   * o titulo e a descrição sera adicionados em um array e depois colocados em label
   * o nome do array e aresp(global)
   */
+  
   addEspecificacao(titulo, descT) {
     //Estancia um objeto especificacao
     let esp = new Especificacao();
@@ -110,32 +112,24 @@ export class ProdutoCrdComponent implements OnInit {
     //Obtem o titulo da especificação
     esp.titulo = titulo.value;
 
+    this.tableEspecs = true;
     //Adiciona a especificação no array
     this.aresp.push(esp);
-
-    //Cria os labels que vai ser mostrado a especificação incluida
-    let label1 = document.createElement('label');
-    let label2 = document.createElement('label');
-
-    //Cria uma quebra de linha 
-    let br = document.createElement('br');
-
-    //adiciona o texto nos labels
-    let textNode = document.createTextNode(titulo.value + ' : ');
-    let textNode1 = document.createTextNode(descT.value);
-    label1.appendChild(textNode);
-    label2.appendChild(textNode1);
-
-    //Adiciona os labels e o br dentro do elemento que tiver a id 'espcs'
-    let lb1 = document.getElementById('espcs');
-    lb1.appendChild(label1);
-    lb1.appendChild(label2);
-    lb1.appendChild(br);
-
+    
     //Limpa o valor dos inputs
     titulo.value = "";
     descT.value = "";
 
+  }
+
+  removeEspec(es){
+    let esp = new Especificacao();
+    esp.descTitulo = es.descTitulo;
+    esp.titulo = es.titulo;
+    
+    let index = this.aresp.indexOf(esp);
+    this.aresp.splice(index,1)
+    
   }
 
   //Manda a imagem para o backend

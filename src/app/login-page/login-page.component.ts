@@ -25,9 +25,13 @@ export class LoginPageComponent implements OnInit {
     this.apiLogin.getUsuario(mail.value).subscribe(dados=>{
       user = dados;
       if(user!=null && user.senha == pass.value){
-        this.auth.alter(true);
-        this.router.navigate(['workTable'],
-        {queryParams:{id:user.id}});
+        if(user.adm == 0){
+          this.auth.alter(true);
+          this.router.navigate(['workTable'],
+          {queryParams:{id:user.id}});
+        }else{
+          this.router.navigate(["''"])
+        }
       }else{
         document.getElementById("mail").classList.add("logError");
         document.getElementById("senha").classList.add("logError");

@@ -14,6 +14,9 @@ export class WorkTableComponent implements OnInit {
   user:any;
   prod:boolean = false;
   offer:boolean = false;
+  cat:boolean = false;
+  adm:boolean = false;
+  
   constructor(private route: ActivatedRoute,private apiLogin:ApiService,private router: Router,private sanitizer: DomSanitizer,private auth:AuthGuardService) { }
 
   ngOnInit() {
@@ -32,23 +35,36 @@ export class WorkTableComponent implements OnInit {
 
   cadProd(){
     this.offer = false;
+    this.cat = false;
+    this.adm = false;
     this.prod = true;
   }
 
+  cadCat(){
+    this.prod = false;
+    this.offer = false;
+    this.adm = false;
+    this.cat = true;
+  }
   cadOffer(){
     this.prod = false;
+    this.cat = false;
+    this.adm = false;
     this.offer = true;
-    
   }
 
   cadAdm(){
     this.offer = false;
+    this.cat = false;
     this.prod = false;
+    this.adm = true;
   }
 
   aVlOffer(){
     this.offer = false;
+    this.cat = false;
     this.prod = false;
+    this.adm = false;
   }
   
 }

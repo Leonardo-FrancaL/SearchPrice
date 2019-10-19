@@ -35,6 +35,9 @@ import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
 import {MatMenuModule} from '@angular/material/menu';
 import { WorkTableComponent } from './work-table/work-table.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { CategoriaCrudComponent } from './categoria-crud/categoria-crud.component';
+import { AdmCrudComponent } from './adm-crud/adm-crud.component';
+import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import { AuthGuardService } from './guards/auth-guard.service';
     ProdutoEditComponent,
     OfertaCrudComponentComponent,
     CadastroSiteComponent,
-    WorkTableComponent
+    WorkTableComponent,
+    CategoriaCrudComponent,
+    AdmCrudComponent,
+    CommentsRateComponent
   ],
   imports: [
     BrowserModule,

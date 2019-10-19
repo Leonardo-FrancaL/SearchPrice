@@ -107,7 +107,8 @@ table, td, th {
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
+  margin-left: 15%;
 }
 
 th, td {
@@ -123,4 +124,8 @@ th, td {
 
 option{
   padding: 10px;
+}
+
+.c{
+  border: none;
 }

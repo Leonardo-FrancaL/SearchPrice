@@ -1,8 +1,8 @@
 export class Usuario {
-    private email:string;
-    private senha:string;
+    email:string;
+    senha:string;
     nome:string;
-
+    adm:number;
     public  setEmail(mail:string){
         this.email = mail;
     }
