@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from '../service/api.service';
 import { AuthGuardService } from '../guards/auth-guard.service';
 import { DomSanitizer } from '@angular/platform-browser';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ServicoProduto } from '../produto.service';
+import { ServicoProduto } from '../service/produto.service';
 import { Produto } from '../model/produto';
 import { DomSanitizer } from '@angular/platform-browser';
 

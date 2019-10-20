@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
+import { CategoriaService } from '../service/categoria.service';
 
 @Component({
   selector: 'app-menu-top-bar',

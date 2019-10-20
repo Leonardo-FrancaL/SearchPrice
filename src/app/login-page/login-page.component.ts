@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../service/api.service';
 import { Usuario } from '../model/User';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../guards/auth-guard.service';
@@ -25,12 +25,12 @@ export class LoginPageComponent implements OnInit {
     this.apiLogin.getUsuario(mail.value).subscribe(dados=>{
       user = dados;
       if(user!=null && user.senha == pass.value){
-        if(user.adm == 0){
+        if(user.adm == 1){
           this.auth.alter(true);
           this.router.navigate(['workTable'],
           {queryParams:{id:user.id}});
         }else{
-          this.router.navigate(["''"])
+          this.router.navigate(["/produtos"])
         }
       }else{
         document.getElementById("mail").classList.add("logError");

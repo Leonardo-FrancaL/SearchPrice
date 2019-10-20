@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicoProduto } from '../produto.service';
+import { ServicoProduto } from '../service/produto.service';
 import { Produto } from '../model/produto';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProdutoEditComponent } from '../produto-edit/produto-edit.component';
 import { Especificacao } from '../model/especific';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { CategoriaService } from '../categoria.service';
+import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
 import { getMatScrollStrategyAlreadyAttachedError } from '@angular/cdk/overlay/typings/scroll/scroll-strategy';
 
@@ -28,9 +28,12 @@ export class ProdutoCrdComponent implements OnInit {
   aresp: Array<any>;
   categorias: Array<any>;
   categoriasFilhas: Array<any>;
-  categoriaSelecionada: number;
+  categoriaSelecionada: number = 0;
+  catFilhaSelecionada: number = 0;
+  catFilha2: number = 0;
+  catFilha3: number = 0;
   subCatSelecionada = "-";
-  catsSubs:Array<any>;
+  catsSubs: Array<any>;
   tableEspecs = false;
 
   /*Ao entrar ele carrega a lista de produtos cadastrados,
@@ -43,7 +46,7 @@ export class ProdutoCrdComponent implements OnInit {
       for (let c = 0; c < dados.length; c++) {
         if (dados[c].idPAI == null) {
           this.categorias.push(dados[c])
-        }else{
+        } else {
           this.catsSubs.push(dados[c]);
         }
       }
@@ -53,21 +56,58 @@ export class ProdutoCrdComponent implements OnInit {
     this.aresp = new Array<Especificacao>();
   }
 
-  test(te){
-    this.categoriaSelecionada=te.value;
-    this.listarSubs();
-  }
-  listarSubs() {
+
+  listarSubs(nivel) {
     let listCats = new Array<any>();
-    if (this.categoriaSelecionada != null || this.categoriaSelecionada != 0) {
-      for(let c=0;c<this.catsSubs.length;c++){
-        if(this.catsSubs[c].idPAI.id == this.categoriaSelecionada){
-          listCats.push(this.catsSubs[c]);
+    switch (nivel) {
+      case 1: {
+        if (this.categoriaSelecionada != null || this.categoriaSelecionada != 0) {
+          for (let c = 0; c < this.catsSubs.length; c++) {
+            if (this.catsSubs[c].idPAI.id == this.categoriaSelecionada) {
+              listCats.push(this.catsSubs[c]);
+            }
+          }
+
+          return listCats;
+        }
+        else {
+
+          return this.catsSubs;
         }
       }
-      return listCats;
-    }else{
-      return this.catsSubs;
+      case 2: {
+        let listShow = new Array<any>();
+        listCats = this.catsSubs;
+        if (this.catFilhaSelecionada != null || this.catFilhaSelecionada != 0) {
+          for (let c = 0; c < listCats.length; c++) {
+            if (listCats[c].idPAI != null) {
+              if (listCats[c].idPAI.id == this.catFilhaSelecionada) {
+                listShow.push(listCats[c])
+              }
+            }
+          }
+          if (listShow.length == 0) {
+            this.catFilha3 = 0;
+            this.catFilha2 = 0;
+          }
+          return listShow;
+        }
+      }
+      case 3: {
+        let listShow = new Array<any>();
+        listCats = this.catsSubs;
+        if (this.catFilha2 != null || this.catFilha2 != 0) {
+          for (let c = 0; c < listCats.length; c++) {
+            if (listCats[c].idPAI != null) {
+              if (listCats[c].idPAI.id == this.catFilha2) {
+                listShow.push(listCats[c])
+              }
+            }
+          }
+          return listShow;
+        }
+      }
+      default: break;
     }
   }
 
@@ -103,7 +143,7 @@ export class ProdutoCrdComponent implements OnInit {
   * o titulo e a descrição sera adicionados em um array e depois colocados em label
   * o nome do array e aresp(global)
   */
-  
+
   addEspecificacao(titulo, descT) {
     //Estancia um objeto especificacao
     let esp = new Especificacao();
@@ -115,21 +155,21 @@ export class ProdutoCrdComponent implements OnInit {
     this.tableEspecs = true;
     //Adiciona a especificação no array
     this.aresp.push(esp);
-    
+
     //Limpa o valor dos inputs
     titulo.value = "";
     descT.value = "";
 
   }
 
-  removeEspec(es){
+  removeEspec(es) {
     let esp = new Especificacao();
     esp.descTitulo = es.descTitulo;
     esp.titulo = es.titulo;
-    
+
     let index = this.aresp.indexOf(esp);
-    this.aresp.splice(index,1)
-    
+    this.aresp.splice(index, 1)
+
   }
 
   //Manda a imagem para o backend
@@ -154,48 +194,50 @@ export class ProdutoCrdComponent implements OnInit {
     prod.especfiEspecificacoes = this.aresp;
     prod.linkSite = linkSite.value;
 
+    let categoria;
     //Pega a cagoria por id (requisição no backend )
-    if(this.subCatSelecionada == null || this.subCatSelecionada == "-"){
-      this.apiCat.getCategoria(Number(this.categoriaSelecionada)).subscribe(dados => {
-        cat = dados;
-  
-        //Apos pegar a categoria no backend , e feito o cadastro do produto
-        //Enviando o JSON para o backend
-        prod.categoria = cat;
-  
-        this.apiSer.addProduto(JSON.stringify(prod)).subscribe(r => {
-          prod = r;
-          this.upLoadFile(r.id);
-          alert("Produto :" + prod.nome_produto + " cadastrado com sucesso !.")
-          console.log(JSON.stringify(prod))
-          name.value = "";
-          prec.value = "";
-          des.value = "";
-          this.atualizarlista();
+    if (this.categoriaSelecionada != 0) {
+      if (this.catFilhaSelecionada != 0) {
+        if (this.catFilha2 != 0) {
+          if (this.catFilha3 != 0) {
+            this.apiCat.getCategoria(this.catFilha3).subscribe(dados=>{
+              categoria = dados;
+              prod.categoria = categoria;
+              this.apiSer.addProduto(prod).subscribe(dados=>{
+                this.atualizarlista();
+                alert("Produto adicionado com sucesso!")
+              })
+            });
+          } else {
+            this.apiCat.getCategoria(this.catFilha2).subscribe(dados=>{
+              categoria = dados;
+              prod.categoria = categoria;
+              this.apiSer.addProduto(prod).subscribe(dados=>{
+                this.atualizarlista();
+                alert("Produto adicionado com sucesso!")
+              })
+            });
+          }
+        } else {
+          this.apiCat.getCategoria(this.catFilhaSelecionada).subscribe(dados=>{
+            categoria = dados;
+            prod.categoria = categoria;
+            this.apiSer.addProduto(prod).subscribe(dados=>{
+              this.atualizarlista();
+              alert("Produto adicionado com sucesso!")
+            })
+          });
+        }
+      } else {
+        this.apiCat.getCategoria(this.categoriaSelecionada).subscribe(dados=>{
+          categoria = dados;
+          prod.categoria = categoria;
+          this.apiSer.addProduto(prod).subscribe(dados=>{
+            this.atualizarlista();
+            alert("Produto adicionado com sucesso!")
+          })
         });
-        this.atualizarlista();
-      })
-    }
-    else{
-      this.apiCat.getCategoria(Number(this.subCatSelecionada)).subscribe(dados => {
-        cat = dados;
-  
-        //Apos pegar a categoria no backend , e feito o cadastro do produto
-        //Enviando o JSON para o backend
-        prod.categoria = cat;
-  
-        this.apiSer.addProduto(JSON.stringify(prod)).subscribe(r => {
-          prod = r;
-          this.upLoadFile(r.id);
-          alert("Produto :" + prod.nome_produto + " cadastrado com sucesso !.")
-          console.log(JSON.stringify(prod))
-          name.value = "";
-          prec.value = "";
-          des.value = "";
-          this.atualizarlista();
-        });
-        this.atualizarlista();
-      })
+      }
     }
 
     //Bloco de codigo utilizado para teste
@@ -206,6 +248,7 @@ export class ProdutoCrdComponent implements OnInit {
   ///Deleta um produto
   btnExcluir(id) {
     this.apiSer.deleteProduto(id).subscribe(r => alert("Produto deletado com sucesso!."));
+    this.atualizarlista();
     this.atualizarlista();
   }
 
@@ -222,6 +265,7 @@ export class ProdutoCrdComponent implements OnInit {
       data: { id: id, nome_produto: nome, preco_produto: preco, desc_produto: desc }
     });
     dialogRef.afterClosed().subscribe(result => {
+      this.atualizarlista();
       this.atualizarlista();
     });
   }

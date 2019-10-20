@@ -24,11 +24,11 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
-import {ServicoProduto} from './produto.service';
+import {ServicoProduto} from './service/produto.service';
 import {MatIconModule} from '@angular/material/icon';
 import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
 import {MatSelectModule} from '@angular/material/select';
-import {CategoriaService} from './categoria.service';
+import {CategoriaService} from './service/categoria.service';
 import {MatChipsModule} from '@angular/material/chips';
 import { OfertaCrudComponentComponent } from './oferta-crud-component/oferta-crud-component.component';
 import { CadastroSiteComponent } from './cadastro-site/cadastro-site.component';
@@ -38,6 +38,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
 import { CategoriaCrudComponent } from './categoria-crud/categoria-crud.component';
 import { AdmCrudComponent } from './adm-crud/adm-crud.component';
 import { CommentsRateComponent } from './comments-rate/comments-rate.component';
+import { UsuarioService } from './service/usuario.service.service';
 
 
 @NgModule({
@@ -81,7 +82,7 @@ import { CommentsRateComponent } from './comments-rate/comments-rate.component';
     MatMenuModule
 
   ],
-  providers: [ServicoProduto,CategoriaService,AuthGuardService],
+  providers: [ServicoProduto,CategoriaService,AuthGuardService,UsuarioService],
   entryComponents: [ ProdutoEditComponent],
   bootstrap: [AppComponent]
 })

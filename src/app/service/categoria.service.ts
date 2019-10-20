@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Categoria } from './model/Categoria';
+import { Categoria } from '../model/Categoria';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json',
@@ -47,6 +47,31 @@ export class CategoriaService {
     );
   }
 
+  updateCategoria(categoria): Observable<any> {
+    const url = apiUrl;
+    return this.http.put(url, categoria, httpOptions).pipe(
+      tap(_ => console.log(`atualiza a categoria com id=`)),
+      catchError(this.handleError<any>('updateCategoria'))
+    );
+  }
+
+  deleteCategoria (id): Observable<Categoria> {
+    const url = `${apiUrl}/${id}`;
+
+    return this.http.delete<Categoria>(url, httpOptions).pipe(
+      tap(_ => console.log(`remove a categoria com id=${id}`)),
+      catchError(this.handleError<Categoria>('deleteCategoria'))
+    );
+  }
+
+  
+  addCategoria (categoria): Observable<Categoria> {
+    return this.http.post<Categoria>(apiUrl, categoria, httpOptions).pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      tap((categoria: Categoria) => console.log(`adicionou a categoria com`)),
+      catchError(this.handleError<Categoria>('addProduto'))
+    );
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

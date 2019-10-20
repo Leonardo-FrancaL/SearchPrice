@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicoProduto } from '../produto.service';
-import { EmpresaService } from '../empresa.service';
+import { ServicoProduto } from '../service/produto.service';
+import { EmpresaService } from '../service/empresa.service';
 import { Produto } from '../model/produto';
 import { Empresa } from '../model/Empresa';
 import { Oferta } from '../model/Oferta';

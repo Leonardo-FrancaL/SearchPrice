@@ -1,7 +1,7 @@
 <mat-tab-group class="test">
     <mat-tab label="Cadastrar">
         <div class="form">
-            <h2>Cadastrar</h2>
+            <h2>Cadastrar administrador</h2>
             <div class="inputEmail">
                 <input type="Email" name="" id="" placeholder="Email" #email required>
             </div>
@@ -10,13 +10,13 @@
                 <input type="password" name="" id="" placeholder="Senha" #senha required>
             </div>
             <div class="inputEmail">
-                <input type="text" name="" id="" placeholder="Nome" #nomeEmpresa required>
+                <input type="text" name="" id="" placeholder="Nome" #nome required>
             </div>
             <div class="inputEmail">
                 <mat-checkbox [checked]="isAdm">É administrador</mat-checkbox>
             </div>
             <div>
-                <button mat-button class="btnLogin">Cadastrar</button>
+                <button mat-button class="btnLogin" (click)="cadastrar(email,senha,nome)">Cadastrar</button>
             </div>
             <div>
 
@@ -35,16 +35,17 @@
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
-                <tr *ngFor="let c of produtos">
-                    <td>{{c.nome_produto}}</td>
-                    <td>R$:{{c.preco_produto}}</td>
-                    <td>{{c.desc_produto}}</td>
-                    <td><button mat-button class="btnEdit">
+                <tr *ngFor="let c of adms">
+                    <td>{{c.nome}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.senha}}</td>
+                    <td>{{c.adm}}</td>
+                    <td><button mat-button class="btnEdit" (click)="atualizarUsuario(email,senha,nome,c.id)">
                             <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
                         </button>
                     </td>
                     <td>
-                        <button mat-button class="btnExcluir">
+                        <button mat-button class="btnExcluir" (click)="deletarUsuario(c.id)">
                             <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
                         </button>
                     </td>

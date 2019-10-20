@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoriaService } from '../categoria.service';
+import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
 import { ArrayDataSource } from '@angular/cdk/collections';
 
@@ -27,6 +27,10 @@ export class CategoriaCrudComponent implements OnInit {
       return c.idPAI.descricao;
     }
   }
+
+  atualizarLista(){
+    this.apiCat.getCategorias().subscribe(dados => this.categorias = dados);
+  }
   cadastrarCategoria(catNome){
     let cat = new Categoria();
     let pai = new Array<any>();
@@ -39,14 +43,25 @@ export class CategoriaCrudComponent implements OnInit {
 
       pai.push(catPai);
 
-      cat.idPAI = pai;
+      cat.idPAI = catPai;
 
-      
+      console.log(JSON.stringify(cat))
+      this.apiCat.addCategoria(cat).subscribe(dados=>{
+        alert('Categoria cadastrada com sucesso')
+      })
     });
+    this.atualizarLista();
+    catNome.value = "";
+
+    this.categoria = 0;
     
   }
   deletar(id){
-
+    this.apiCat.deleteCategoria(id).subscribe(dados=>{
+      alert("Categoria deletada com sucesso")
+      this.atualizarLista();
+    });
+    this.atualizarLista();
   }
   editar(id){
 

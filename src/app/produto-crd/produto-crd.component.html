@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="row">
-                
-                
+
+
             </div>
             <div class="row">
                 <div class="inputEmail">
@@ -32,40 +32,43 @@
             <div class="row">
                 <mat-form-field class="s">
                     <mat-label>Categoria</mat-label>
-                    <select matNativeControl (change)="test(te)" #te class="custom-select">
-                        <option>-</option>
-                        <option *ngFor="let c of categorias" [value]="c.id">
-                        {{c.descricao}}
-                        </option>
-                    </select>
-                    
-                    </mat-form-field>
-                <mat-form-field class="s">
-                        <mat-label>Sub categoria</mat-label>
-                        <mat-select  [(value)]="subCatSelecionada">
-                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
-                            {{f.descricao}}
-                            </mat-option>
-                            </mat-select>
-                        
+                    <mat-select [(value)]="categoriaSelecionada">
+                        <mat-option>-</mat-option>
+                        <mat-option *ngFor="let c of categorias" [value]="c.id">
+                            {{c.descricao}}
+                        </mat-option>
+                    </mat-select>
+
                 </mat-form-field>
                 <mat-form-field class="s">
-                        <mat-label>Sub categoria</mat-label>
-                        <mat-select  [(value)]="subCatSelecionada">
-                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
+                    <mat-label>Sub categoria</mat-label>
+                    <mat-select [(value)]="catFilhaSelecionada">
+                        <mat-option value="0">-</mat-option>
+                        <mat-option *ngFor="let f of listarSubs(1)" [value]="f.id">
                             {{f.descricao}}
-                            </mat-option>
-                            </mat-select>
-                        
+                        </mat-option>
+                    </mat-select>
+
                 </mat-form-field>
                 <mat-form-field class="s">
-                        <mat-label>Sub categoria</mat-label>
-                        <mat-select  [(value)]="subCatSelecionada">
-                            <mat-option *ngFor="let f of listarSubs()" [value]="f.id">
+                    <mat-label>Sub categoria</mat-label>
+                    <mat-select [(value)]="catFilha2">
+                            <mat-option value="0">-</mat-option>
+                        <mat-option *ngFor="let f of listarSubs(2)" [value]="f.id">
                             {{f.descricao}}
-                            </mat-option>
-                            </mat-select>
-                        
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+                <mat-form-field class="s">
+                    <mat-label>Sub categoria</mat-label>
+                    <mat-select  [(value)]="catFilha3">
+                        <mat-option value="0">-</mat-option>
+                        <mat-option *ngFor="let f of listarSubs(3)" [value]="f.id">
+                            {{f.descricao}}
+                        </mat-option>
+                    </mat-select>
+
                 </mat-form-field>
             </div>
             <div class="espcs" id="espcs">
@@ -83,16 +86,20 @@
                             {{es.descTitulo}}
                         </td>
                         <td>
-                            <button mat-button (click)="removeEspec(es)"><mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon></button>
+                            <button mat-button (click)="removeEspec(es)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                            </button>
                         </td>
                     </tr>
-             </table>
-                
+                </table>
+
             </div>
             <div class="row" id="rowEspec">
                 <input type="" placeholder="Titulo Especificação" class="leftInput" #titulo>
                 <input type="" placeholder="Especificação" class="rightInput" #descT>
-                <button mat-button (click)="addEspecificacao(titulo,descT)"><mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon></button>
+                <button mat-button (click)="addEspecificacao(titulo,descT)">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
+                </button>
             </div>
             <div class="col-75">
                 <button mat-button class="btnLogin" (click)="cadastrar(nome,preco,desc,linkSite)   ">Cadastrar</button>

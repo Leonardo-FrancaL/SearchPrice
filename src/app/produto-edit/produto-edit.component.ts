@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Produto } from '../model/produto';
-import { ServicoProduto } from '../produto.service';
+import { ServicoProduto } from '../service/produto.service';
 
 @Component({
   selector: 'app-produto-edit',
