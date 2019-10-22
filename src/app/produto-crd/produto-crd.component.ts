@@ -135,7 +135,7 @@ export class ProdutoCrdComponent implements OnInit {
         this.imagePreview = reader.result as string;
       }
       this.selectFile = event.target.files[0];
-
+      
     }
   }
 
@@ -205,6 +205,7 @@ export class ProdutoCrdComponent implements OnInit {
               prod.categoria = categoria;
               this.apiSer.addProduto(prod).subscribe(dados=>{
                 this.atualizarlista();
+                this.upLoadFile(dados.id)
                 alert("Produto adicionado com sucesso!")
               })
             });
@@ -214,6 +215,7 @@ export class ProdutoCrdComponent implements OnInit {
               prod.categoria = categoria;
               this.apiSer.addProduto(prod).subscribe(dados=>{
                 this.atualizarlista();
+                this.upLoadFile(dados.id)
                 alert("Produto adicionado com sucesso!")
               })
             });
@@ -224,6 +226,7 @@ export class ProdutoCrdComponent implements OnInit {
             prod.categoria = categoria;
             this.apiSer.addProduto(prod).subscribe(dados=>{
               this.atualizarlista();
+              this.upLoadFile(dados.id)
               alert("Produto adicionado com sucesso!")
             })
           });
@@ -234,6 +237,7 @@ export class ProdutoCrdComponent implements OnInit {
           prod.categoria = categoria;
           this.apiSer.addProduto(prod).subscribe(dados=>{
             this.atualizarlista();
+            this.upLoadFile(dados.id)
             alert("Produto adicionado com sucesso!")
           })
         });
