@@ -27,6 +27,8 @@ export class LoginPageComponent implements OnInit {
       if(user!=null && user.senha == pass.value){
         if(user.adm == 1){
           this.auth.alter(true);
+          sessionStorage.setItem('id', dados.id.toString());
+          sessionStorage.setItem('name', dados.nome);
           this.router.navigate(['workTable'],
           {queryParams:{id:user.id}});
         }else{

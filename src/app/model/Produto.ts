@@ -1,5 +1,6 @@
 import { Categoria } from './Categoria';
 import {Oferta} from './Oferta';
+import { Avaliacao } from './avaliacao';
 
 export class Produto {
     id: string;
@@ -12,8 +13,5 @@ export class Produto {
     linkSite:string;
     picture:any;
     ofertas:Array<Oferta>;
-
-
-    
-    
+    avaliacoes:Array<Avaliacao>;
   }

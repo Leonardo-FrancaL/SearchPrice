@@ -1,27 +1,53 @@
 <div class="bottomProdExample">
-        <h2 class="aval">Avaliações</h2>
-        <hr>
-    <div class="Item" *ngFor="let oferta of produto.ofertas">
-        <span class="ImgProdDiv">
-            <img class="img" [src]="teste(produto)" alt="Imagem do produto" class="imgProd" />
-        </span>
-        <span class="ImgLojaDiv">
-            <img class="img" [src]="testBugemp(oferta)" alt="Imagem da empresa" class="imgProd" />
-        </span>
+    <h2 class="aval">Avaliações</h2>
+    <hr>
+    <div class="perFComent">
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" #s5/>
+            <label for="star5" title="5 estrelas">5 stars</label>
 
-        <span>
-            <span class="preco">
-                <label>à vista por <br>R$ {{oferta.offer_valorUni}}</label>
-                <label class="descc"> {{oferta.offer_descricao}}</label>
-                <button mat-button class="btnPosition" (click)="goToStore(oferta.linkOferta)">Ir para a Loja</button>
-            </span>
+            <input type="radio" id="star4" name="rate" value="4" #s4/>
+            <label for="star4" title="4 estrelas">4 stars</label>
 
+            <input type="radio" id="star3" name="rate" value="3" #s3/>
+            <label for="star3" title="3 estrelas">3 stars</label>
 
-        </span>
-
-
-
-        <hr>
+            <input type="radio" id="star2" name="rate" value="2" #s2/>
+            <label for="star2" title="2 estrelas">2 stars</label>
+            
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="1 estrela">1 star</label>
+        </div><br><br>
+        <br>
+        <input type="text" name="" id="" placeholder="Titulo" #titulo>
+        <textarea name="" id="" cols="30" rows="10"
+            placeholder="Descreva aqui sua experiencia com este produto" #desc></textarea><br>
+        <button mat-button class="btnEditar" (click)="enviarComentario(titulo,desc,s2,s3,s4,s5)">Postar</button>
+    </div>
+    <hr>
+    <div class="Item" *ngFor="let comments of produto.avaliacoes">
+        <div>
+            <mat-card class="example-card">
+                    <mat-card-header>
+                      <mat-card-title>
+                            <mat-icon aria-hidden="false" aria-label="Example home icon">person</mat-icon>
+                            <label class="name">Fulano de tal</label>
+                            <br>
+                            {{comments.aval_titulo}}
+                      </mat-card-title>
+                      <mat-card-subtitle>
+                          <label>                                
+                                {{test(comments.aval_rating_star)}}
+                          </label>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p>
+                        {{comments.aval_comentario}}
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+        </div>
     </div>
 
 

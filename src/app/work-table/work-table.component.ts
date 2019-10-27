@@ -21,7 +21,6 @@ export class WorkTableComponent implements OnInit {
 
   ngOnInit() {
     this.auth.alter(true);
-    
     let id = this.route.snapshot.queryParams['id'];
     this.apiLogin.getUsuarioId(id).subscribe(dados=>{
       this.user=dados;

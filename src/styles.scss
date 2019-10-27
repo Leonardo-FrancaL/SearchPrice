@@ -46,6 +46,9 @@ table, td, th {
     .btnIrLoja{
         background-color: #5cb85c;
     }
+    .btnEditar{
+        background-color: #5cb85c;
+    }
     .imgProd{
         width: 150px;
         height: 150px;
@@ -70,4 +73,15 @@ table, td, th {
     }
     
     
+    input[type=text],[type=number]{
+        width: 80%;
+        padding: 5px;
+        padding-left: 19px;
+        margin-bottom: 5px;
+    }
+    textarea{
+      width: 80%;
+        padding: 5px;
+        padding-left: 19px;
+    }
 }
