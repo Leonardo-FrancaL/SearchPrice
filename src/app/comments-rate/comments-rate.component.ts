@@ -33,6 +33,14 @@ export class CommentsRateComponent implements OnInit {
      });
   }
 
+  getDono(c){
+    if(c==null || c==""){
+      return 'Anonimo';
+    }else{
+      return c;
+    }
+  }
+
   test(i){
     
     let a = "★";
@@ -50,6 +58,7 @@ export class CommentsRateComponent implements OnInit {
 
     avaliacao.aval_titulo = titulo.value;
     avaliacao.aval_comentario = desc.value;
+    avaliacao.aval_post_owner = sessionStorage.getItem('name');
 
     if(s5.checked){
       avaliacao.aval_rating_star = 5;

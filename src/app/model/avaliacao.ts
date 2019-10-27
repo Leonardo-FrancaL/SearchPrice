@@ -4,4 +4,5 @@ export class Avaliacao{
     aval_rating_star:number;
     aval_comentario:string;
     aval_titulo:string;
+    aval_post_owner:string;
 }

@@ -32,6 +32,8 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['workTable'],
           {queryParams:{id:user.id}});
         }else{
+          sessionStorage.setItem('id', dados.id.toString());
+          sessionStorage.setItem('name', dados.nome);
           this.router.navigate(["/produtos"])
         }
       }else{

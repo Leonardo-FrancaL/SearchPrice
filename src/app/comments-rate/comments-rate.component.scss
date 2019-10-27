@@ -4,12 +4,6 @@
     padding: 0 0px;
     margin-bottom: 8px;
 }
-.rate2 {
-    float: left;
-    height: 46px;
-    padding: 0 0px;
-    margin-bottom: 8px;
-}
 .rate:not(:checked) > input {
     position:absolute;
     top:-9999px;
@@ -24,9 +18,6 @@
     color:black;
 }
 .rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate2:not(:checked) > label:before {
     content: '★ ';
 }
 .rate > input:checked ~ label {
