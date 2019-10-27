@@ -16,9 +16,15 @@ export class OfertaCrudComponentComponent implements OnInit {
   prodSelecionado:any;
   empresas:Array<any>;
   empresaSelecionada:any;
-  constructor(private apiProd:ServicoProduto,private apiEmp:EmpresaService) { }
+  constructor(private apiProd:ServicoProduto,private apiEmp:EmpresaService) {
+  }
 
   ngOnInit() {
+    this.apiProd.getProdutos().subscribe(dados=>this.produtos = dados);
+    this.apiEmp.getEmpesas().subscribe(dados=>this.empresas = dados);
+  }
+
+  charge(){
     this.apiProd.getProdutos().subscribe(dados=>this.produtos = dados);
     this.apiEmp.getEmpesas().subscribe(dados=>this.empresas = dados);
   }

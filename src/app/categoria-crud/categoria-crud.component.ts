@@ -29,6 +29,7 @@ export class CategoriaCrudComponent implements OnInit {
   }
 
   atualizarLista(){
+    this.categorias = null;
     this.apiCat.getCategorias().subscribe(dados => this.categorias = dados);
   }
   cadastrarCategoria(catNome){
@@ -48,6 +49,8 @@ export class CategoriaCrudComponent implements OnInit {
       console.log(JSON.stringify(cat))
       this.apiCat.addCategoria(cat).subscribe(dados=>{
         alert('Categoria cadastrada com sucesso')
+        this.categorias.push(cat);
+        
       })
     });
     this.atualizarLista();

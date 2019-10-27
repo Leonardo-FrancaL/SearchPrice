@@ -116,6 +116,7 @@ export class ProdutoCrdComponent implements OnInit {
    * caso ocorra alguma atualização na lista é so chamar esse metodo
    */
   atualizarlista() {
+    this.produtos = null;
     this.apiSer.getProdutos().subscribe(dados => this.produtos = dados);
     console.log(this.produtos)
   }
@@ -253,7 +254,6 @@ export class ProdutoCrdComponent implements OnInit {
   btnExcluir(id) {
     this.apiSer.deleteProduto(id).subscribe(r => alert("Produto deletado com sucesso!."));
     this.atualizarlista();
-    this.atualizarlista();
   }
 
   //Edita um produto
@@ -269,7 +269,6 @@ export class ProdutoCrdComponent implements OnInit {
       data: { id: id, nome_produto: nome, preco_produto: preco, desc_produto: desc }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.atualizarlista();
       this.atualizarlista();
     });
   }

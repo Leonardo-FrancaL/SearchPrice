@@ -34,7 +34,7 @@
                 </mat-form-field>
             </div>
             <div class="row">
-                <mat-form-field class="s">
+                <mat-form-field class="s" (click)="charge()">
                     <mat-label>Produto</mat-label>
                     <mat-select  [(value)]="prodSelecionado">
                         <mat-option *ngFor="let c of produtos" [value]="c.id">
