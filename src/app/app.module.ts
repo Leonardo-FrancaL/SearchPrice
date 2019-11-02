@@ -39,6 +39,8 @@ import { CategoriaCrudComponent } from './categoria-crud/categoria-crud.componen
 import { AdmCrudComponent } from './adm-crud/adm-crud.component';
 import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 import { UsuarioService } from './service/usuario.service.service';
+import { FooterComponent } from './footer/footer.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { UsuarioService } from './service/usuario.service.service';
     WorkTableComponent,
     CategoriaCrudComponent,
     AdmCrudComponent,
-    CommentsRateComponent
+    CommentsRateComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { UsuarioService } from './service/usuario.service.service';
     MatIconModule,
     MatSelectModule,
     MatChipsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule
 
   ],
   providers: [ServicoProduto,CategoriaService,AuthGuardService,UsuarioService],

@@ -1,12 +1,34 @@
-<div class="divp" *ngFor="let c of produtos">
-    <div>
-        <img class="img" [src]="teste(c)" alt="asd" #img/>
+<div class="topo">
+    <h2>O que te interessa mais?</h2>
+    <p>Selecione uma categoria e veja as melhores ofertas</p>
+    <mat-chip-list aria-label="">
+        <mat-chip class="chipb" color="blue" (click)="limparFiltroCat()">Limpar Filtros</mat-chip>
+    <div *ngFor="let c of categorias" class="topo">
+        
+            <mat-chip class="chip" color="white" (click)="searchProdPerCat(c.id)" selected>
+                {{c.descricao}}
+            </mat-chip>
+        
     </div>
+</mat-chip-list>
+</div>
+<div class="carr">
+    <button mat-button (click)="carouselProdutos('back')" class="btnControl">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_left</mat-icon>
+    </button>
+    <div class="divp" *ngFor="let c of prod">
+        <div>
+            <img class="img" [src]="teste(c)" alt="asd" #img />
+        </div>
 
-    <div class="contents">
-        <h3>{{c.nome_produto}}</h3>
-        <p>R$:{{c.preco_produto}}</p>
-        <p>{{c.desc_produto}}</p>
-        <button (click)="clicar(c.id)">Comparar</button>
+        <div class="contents">
+            <h3>{{c.nome_produto}}</h3>
+            <p>R$:{{showBestOffer(c)}}</p>
+            <p>{{c.desc_produto}}</p>
+            <button mat-button class="btnEditar" (click)="clicar(c.id)">Comparar</button>
+        </div>
     </div>
+    <button mat-button (click)="carouselProdutos()" class="btnControl">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_right</mat-icon>
+    </button>
 </div>

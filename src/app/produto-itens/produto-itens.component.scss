@@ -1,48 +1,56 @@
-.divp{
-        height: auto;
-        width: auto;
-        background-color: white;
-        word-wrap: break-word;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 12px;
-        display: inline-block;
-        margin-right: 5px;
-        .contents{
-            p{
-                color: gray;
-            }
-            button {
-                background-color: blue;
-                border: 0;
-                color: white; 
-                padding: 5px;
-                padding-left: 15px;
-                padding-right: 15px;
-                border-radius: 4px;
-                margin-left: calc(50% - 15%);
-            }
-            button:hover {
-             font-weight: bold;
-             position: relative;
-             
-          }
-          button:active{
-              opacity: 0.8;
-          }
-        }
+.topo{ display: inline-block;width: auto;margin-right: 5px;}
+.divp {
+  height: auto;
+  width: auto;
+  background-color: white;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 12px;
+  display: inline-block;
+  border: 1px gray solid;
+  margin-right: 5px;
+  .contents {
+    p {
+      color: gray;
     }
-    img{
-        width:350px;
-        height: 250px;
-    }
+    text-align: center;
+  }
+}
+.chip{
+    background-color: white;
+    border: 2px solid #4040ff;
+    color: #4040ff;
+    
+}
+
+.chipb{
+  background-color: #4040ff;
+  border: 2px solid #4040ff;
+  color: white;
+  
+}
+.chip:hover{
+    color: white;
+    background-color: #4040ff;
+    border: 2px solid white;
+    
+}
+
+img {
+  width: 150px;
+  height: 100px;
+}
+.btnControl {
+  top: -90px;
+}
 @media only screen and (max-width: 1024px) {
-        .img{
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-        .divp{
-            width: 80%;
-        }
+  .img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  .divp {
+    width: 80%;
+  }
 }

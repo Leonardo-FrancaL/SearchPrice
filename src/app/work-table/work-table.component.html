@@ -1,11 +1,9 @@
 <div class="topo">
-        <label>{{user.nome}}</label>
-        <button mat-button class="btnSair" (click)="logout()">Sair</button>
-</div>
-
-<div class="pageChargeBack">
-
-        <div class="menuLateral">
+                <label>{{user.nome}}</label>
+                <button mat-button class="btnSair" (click)="logout()">Sair</button>
+        </div>
+<mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
                 <ul>
                         <li class="test">
                                 <button mat-button class="testn" (click)="cadProd()">Cadastro de produtos</button>
@@ -24,13 +22,18 @@
                                         produtos</button>
                         </li>
                 </ul>
-        </div>
-        <div class="pages">
-                        <app-produto-crd [hidden]="!prod"></app-produto-crd>
-                        <app-oferta-crud-component [hidden]="!offer"></app-oferta-crud-component>
-                        <app-categoria-crud [hidden]="!cat"></app-categoria-crud>
-                        <app-adm-crud [hidden]="!adm"></app-adm-crud>
+        </mat-drawer>
+
+        <div class="example-sidenav-content">
+                <button type="button" mat-button (click)="drawer.toggle()">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+                </button>
+                <div class="pages">
+                                <app-produto-crd [hidden]="!prod"></app-produto-crd>
+                                <app-oferta-crud-component [hidden]="!offer"></app-oferta-crud-component>
+                                <app-categoria-crud [hidden]="!cat"></app-categoria-crud>
+                                <app-adm-crud [hidden]="!adm"></app-adm-crud>
+                        </div>
         </div>
 
-
-</div>
+</mat-drawer-container>
