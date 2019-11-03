@@ -111,14 +111,12 @@
             <table>
                 <tr>
                     <th>Produto</th>
-                    <th>Preço</th>
                     <th>descrição</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                 </tr>
                 <tr *ngFor="let c of produtos">
                     <td>{{c.nome_produto}}</td>
-                    <td>R$:{{c.preco_produto}}</td>
                     <td>{{c.desc_produto}}</td>
                     <td><button mat-button class="btnEdit"
                             (click)="btnEditar(c.id,c.nome_produto,c.preco_produto,c.desc_produto)">
