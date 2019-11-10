@@ -18,7 +18,12 @@ export class PainelProdutoComponent implements OnInit {
 
 
   teste(prod:Produto){
-    return this.sanitizer.bypassSecurityTrustUrl(prod.picture)
+    //return this.sanitizer.bypassSecurityTrustUrl(prod.picture)
+    if (prod.picture == null || prod.picture == "") {
+      return this.sanitizer.bypassSecurityTrustUrl('../../assets/no-image-available-icon-6.jpg')
+    } else {
+      return this.sanitizer.bypassSecurityTrustUrl(prod.picture)
+    }
   }
 
   testBugemp(c){

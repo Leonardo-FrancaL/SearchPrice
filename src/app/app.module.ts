@@ -41,6 +41,8 @@ import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 import { UsuarioService } from './service/usuario.service.service';
 import { FooterComponent } from './footer/footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HistoryService } from './service/history.service.service';
+import { GraficHistoryComponent } from './grafic-history/grafic-history.component';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     CategoriaCrudComponent,
     AdmCrudComponent,
     CommentsRateComponent,
-    FooterComponent
+    FooterComponent,
+    GraficHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatSidenavModule
 
   ],
-  providers: [ServicoProduto,CategoriaService,AuthGuardService,UsuarioService],
+  providers: [ServicoProduto,CategoriaService,AuthGuardService,UsuarioService,HistoryService],
   entryComponents: [ ProdutoEditComponent],
   bootstrap: [AppComponent]
 })
