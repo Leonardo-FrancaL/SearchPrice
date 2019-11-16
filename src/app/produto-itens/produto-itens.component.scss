@@ -1,4 +1,12 @@
-.topo{ display: inline-block;width: auto;margin-right: 5px;}
+.cent{
+  text-align: center;
+}
+.topo{ 
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+  padding-bottom: 15px;
+}
 .divp {
   height: auto;
   width: 160px;
@@ -11,6 +19,7 @@
   display: inline-block;
   border: 1px gray solid;
   margin-right: 5px;
+  margin-bottom: 40px;
   .contents {
     p {
       color: gray;

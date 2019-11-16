@@ -26,6 +26,19 @@
     margin-left: 5%;
     position: absolute;
 }
+.hide{
+    display: none;
+}
+label{
+    margin-right: 15px;
+    display: inline-block;
+    
+}
+.btnSair{
+    right: 50px;
+    position: absolute;
+    background-color: red;
+}
 /*
 .serchDiv{
     width: auto;

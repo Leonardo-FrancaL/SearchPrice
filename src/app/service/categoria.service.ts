@@ -31,6 +31,14 @@ export class CategoriaService {
     );
   }
 
+  getCategoriaN(name: string): Observable<any> {
+    const url = `${apiUrl+'N'}/${name}`;
+    return this.http.get<Categoria>(url).pipe(
+      tap(_ => console.log(`leu o produto id=${name}`)),
+      catchError(this.handleError<Categoria>(`getProduto id=${name}`))
+    );
+  }
+
   getCategorias (): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(apiUrl)
       .pipe(
@@ -39,6 +47,7 @@ export class CategoriaService {
       );
   }
 
+  
   getCategoriaFilha(id: number): Observable<Categoria[]> {
     const url = `${apiUrl+'s'}/${id}`;
     return this.http.get<Categoria[]>(url).pipe(

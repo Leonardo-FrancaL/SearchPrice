@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Produto } from '../model/produto';
+import { Categoria } from '../model/Categoria';
 
 
 const httpOptions = {
@@ -29,11 +30,27 @@ export class ServicoProduto {
       );
   }
 
+  getProdutosCat (produto:Categoria): Observable<Produto[]> {
+    return this.http.post<Produto[]>(apiUrl+'cat', produto, httpOptions).pipe(
+      // tslint:disable-next-line:no-shadowed-variable
+      tap((produto => console.log(`adicionou o produto com`))),
+      catchError(this.handleError<Produto[]>('addProduto',[]))
+    );
+  }
+
   getProduto(id: number): Observable<Produto> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<Produto>(url).pipe(
       tap(_ => console.log(`leu o produto id=${id}`)),
       catchError(this.handleError<Produto>(`getProduto id=${id}`))
+    );
+  }
+
+  getProdutoN(name: string): Observable<any> {
+    const url = `${apiUrl+'N'}/${name}`;
+    return this.http.get<Produto>(url).pipe(
+      tap(_ => console.log(`leu o produto id=${name}`)),
+      catchError(this.handleError<Produto>(`getProduto id=${name}`))
     );
   }
 

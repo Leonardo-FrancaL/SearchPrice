@@ -1,0 +1,32 @@
+.container {
+  a {
+    color: blue;
+  }
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
+  //border: 0.5px gray solid;
+  width: 95%;
+  // margin-left: calc(50% - 35%);
+  p {
+    color: black;
+    text-align: center;
+  }
+  padding: 15px;
+  h2 {
+      text-align: center;
+  }
+}
+
+.itens {
+  margin-top: 150px;
+  text-align: center;
+  img {
+    width: 250px;
+  }
+  display: inline-block;
+  margin-top: 12px;
+  margin-right: 5px;
+  margin-bottom: 40px;
+  word-wrap: break-word;
+}

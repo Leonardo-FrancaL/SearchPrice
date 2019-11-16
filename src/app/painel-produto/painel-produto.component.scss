@@ -6,6 +6,10 @@
     margin-left: 25%;
     
 }
+.fill{
+    width: 100%;
+    background-color: white;
+}
 .tpDiv{
     display: inline-block;
     margin-left: 50px;
@@ -14,7 +18,9 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
+body{
+    background-color: white;
+}
 span{
     display: inline-block;
 }

@@ -43,6 +43,8 @@ import { FooterComponent } from './footer/footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HistoryService } from './service/history.service.service';
 import { GraficHistoryComponent } from './grafic-history/grafic-history.component';
+import { ProdutosSResultComponent } from './produtos-sresult/produtos-sresult.component';
+
 
 
 @NgModule({
@@ -64,7 +66,8 @@ import { GraficHistoryComponent } from './grafic-history/grafic-history.componen
     AdmCrudComponent,
     CommentsRateComponent,
     FooterComponent,
-    GraficHistoryComponent
+    GraficHistoryComponent,
+    ProdutosSResultComponent
   ],
   imports: [
     BrowserModule,

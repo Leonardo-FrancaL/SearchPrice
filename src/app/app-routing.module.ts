@@ -13,6 +13,7 @@ import { CategoriaCrudComponent } from './categoria-crud/categoria-crud.componen
 import { AdmCrudComponent } from './adm-crud/adm-crud.component';
 import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 import { GraficHistoryComponent } from './grafic-history/grafic-history.component';
+import { ProdutosSResultComponent } from './produtos-sresult/produtos-sresult.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
     path:'admWorkFlow',
     canActivate:[AuthGuardService],
     component:AdmCrudComponent
+  },
+  {
+    path:'prodResult',
+    component:ProdutosSResultComponent
   },
   {
     path:'comments',

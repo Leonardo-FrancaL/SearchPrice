@@ -1,17 +1,29 @@
 <mat-toolbar class="cor">
-    
+        <button mat-button class="hide" id="menu" [matMenuTriggerFor]="menu">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+                <button mat-menu-item>Meus Comentarios</button>
+                <button mat-menu-item>Definir Alerta</button>
+        </mat-menu>
         <div class="logo">
-                <h2><a routerLink=''>Busca Preço</a></h2>
+                <h2><a routerLink=''>Busca Preço</a>
+                </h2>
+
         </div>
-  <div class="serachdivDIV">
-      
-        <div class="serchDiv">
-                <button mat-button class="pes">Pesquisar</button>
-                <input type="search" placeholder="Pesquisar , Digite o nome do produto !."/>
-                <button mat-button class="btnEntrar" (click)="logarBtn()">Entrar</button>
-        </div> 
+        <div class="serachdivDIV">
 
-        
-  </div>
+                <div class="serchDiv">
+                        <button mat-button class="btnEntrar" (click)="logarBtn()" [hidden]="!shallHide"
+                                id="btnE">Entrar</button>
+                        <label id="name" class="hide">{{getUserName()}}</label>
+                        <input type="search" placeholder="Digite o nome de uma categoria ou de um produto !" #search />
+                        <button mat-button class="pes" (click)="btnSearch(search)">
+                                <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+                        </button>
+                        <button mat-button class="hide" id="btnSair" (click)="logout()">Sair</button>
+                </div>
+
+
+        </div>
 </mat-toolbar>
-

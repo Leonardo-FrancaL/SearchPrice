@@ -1,0 +1,21 @@
+<div>
+    <app-top-bar-menu></app-top-bar-menu>
+</div>
+<div class="container">
+    <a href="">Home/</a><a href="">Categorias/</a>{{categoria.descricao}}
+    <div></div>
+    <br><br><br>
+    <h2 >Produtos relacionados a categoria {{categoria.descricao}}</h2>
+    <div class="itens" *ngFor="let c of produtos">
+            <div>
+                <img class="img" [src]="mostrarImagen(c)"/>
+            </div>
+    
+            <div class="contents">
+                <h3>{{c.nome_produto}}</h3>
+                <p>R$:{{showBestOffer(c)}}</p>
+                <p>Descrição : {{showDesc(c)}}</p>
+                <button mat-button class="btnEditar" (click)="clicar(c.id)">Comparar</button>
+            </div>
+        </div>
+</div>

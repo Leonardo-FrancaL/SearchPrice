@@ -138,4 +138,16 @@ export class ProdutoItensComponent implements OnInit {
       
     }
   }
+
+  showDesc(prod: Produto){
+    let str = "";
+    if(prod.desc_produto.length > 20){
+      for(let i = 0; i <30; i++){
+        str = prod.desc_produto[i];
+      }
+      return str + '<a>ler mais</a>';
+    }else{
+      return prod.desc_produto;
+    }
+  }
 }

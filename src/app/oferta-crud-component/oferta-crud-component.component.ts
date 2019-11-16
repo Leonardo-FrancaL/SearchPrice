@@ -70,7 +70,6 @@ export class OfertaCrudComponentComponent implements OnInit {
     hist.his_preco = valor;
 
     hist.produto = p;
-    hist.idProd = p.id;
 
     var data = new Date();
     var dia     = data.getDate();
@@ -81,7 +80,7 @@ export class OfertaCrudComponentComponent implements OnInit {
     hist.his_dt_periodo = str_data;
 
     this.history.addHistory(hist).subscribe(dados=>{
-      console.log('a')
+      console.log('')
     });
 
     // this.his_preco = valor;

@@ -1,72 +1,75 @@
 <app-top-bar-menu></app-top-bar-menu>
-<div class="topProdExample">
-    <span class="prodImage">
-        <img class="img" [src] = "teste(produto)" alt="Imagem do produto" height="200px;" />
-    </span>
-    <div class="tpDiv">
-        <span class="ProdNome">
-            <h2>{{produto.nome_produto}}</h2>
+<span class="fill">
+    <div class="topProdExample">
+        <span class="prodImage">
+            <img class="img" [src]="teste(produto)" alt="Imagem do produto" height="200px;" />
         </span>
-        <span class="descProd">
-                <div *ngFor="let spec of produto.especfiEspecificacoes" >
-            
-                        <mat-chip-list aria-label="Fish selection">
-                                <mat-chip>
-                                        {{spec.titulo}} :
-                                        {{spec.descTitulo}}
-                                    </mat-chip>
-                        </mat-chip-list>
-            
-                    </div>
-                    <hr>
-            <label>{{produto.desc_produto}}</label>
-        </span>
-        <div>
-            avaliações media
+        <div class="tpDiv">
+            <span class="ProdNome">
+                <h2>{{produto.nome_produto}}</h2>
+            </span>
+            <span class="descProd">
+                <div *ngFor="let spec of produto.especfiEspecificacoes">
+
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip>
+                            {{spec.titulo}} :
+                            {{spec.descTitulo}}
+                        </mat-chip>
+                    </mat-chip-list>
+
+                </div>
+                <hr>
+                <label>{{produto.desc_produto}}</label>
+            </span>
+            <div>
+                avaliações media
+            </div>
+            <div class="proPreco">
+                <p>A partir de </p>
+                <label class="precoLabel"> R$: {{produto.preco_produto}}</label>
+            </div>
+            <div class="especific">
+
+            </div>
+            <div>
+
+            </div>
         </div>
-        <div class="proPreco">
-            <p>A partir de </p>
-           <label class="precoLabel"> R$: {{produto.preco_produto}}</label>
+        <div style="width: 800px;">
+            <app-grafic-history></app-grafic-history>
         </div>
-        <div class="especific">
-                
-        </div>
-        <div>
-             
-        </div>
+
     </div>
-    <div style="width: 800px;">
-        <app-grafic-history></app-grafic-history>
-    </div>
-    
-</div>
+</span>
 <div class="othersProd">
     <div class="bottomProdExample">
         <div class="Item" *ngFor="let oferta of produto.ofertas">
             <span class="ImgProdDiv">
-                    <img class="img" [src] = "teste(produto)" alt="Imagem do produto" class="imgProd"/>
+                <img class="img" [src]="teste(produto)" alt="Imagem do produto" class="imgProd" />
             </span>
             <span class="ImgLojaDiv">
-                    
+
             </span>
-            
+
             <span>
                 <span class="preco">
                     <label>à vista por <br>R$ {{oferta.offer_valorUni}}</label>
                     <label class="descc"> {{oferta.offer_descricao}}</label>
-                    <button mat-button class="btnPosition" (click)="goToStore(oferta.linkOferta)">Ir para a Loja</button>
+                    <button mat-button class="btnPosition" (click)="goToStore(oferta.linkOferta)">Ir para a
+                        Loja</button>
                 </span>
-                
-                    
+
+
             </span>
-               
-                
-            
+
+
+
             <hr>
         </div>
 
 
     </div>
-    
+
     <app-comments-rate></app-comments-rate>
 </div>
