@@ -14,6 +14,7 @@ import { AdmCrudComponent } from './adm-crud/adm-crud.component';
 import { CommentsRateComponent } from './comments-rate/comments-rate.component';
 import { GraficHistoryComponent } from './grafic-history/grafic-history.component';
 import { ProdutosSResultComponent } from './produtos-sresult/produtos-sresult.component';
+import { MycommentsComponent } from './mycomments/mycomments.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path:'graf',
     component:GraficHistoryComponent
+  },
+  {
+    path:'mycoments',
+    canActivate:[AuthGuardService],
+    component:MycommentsComponent
   },
   //Caso o caminho não exista retorna para o 404
   {path:'**',redirectTo:'404'}

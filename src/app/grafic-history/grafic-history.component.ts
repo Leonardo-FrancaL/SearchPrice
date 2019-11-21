@@ -13,6 +13,7 @@ export class GraficHistoryComponent implements OnInit {
   constructor(private route: ActivatedRoute,private his:HistoryService) { }
 
   id;
+  hidden = true;
   ngOnInit() {
     this.id = this.route.snapshot.queryParams['id'];
     var dps = []; // dataPoints
@@ -30,22 +31,29 @@ export class GraficHistoryComponent implements OnInit {
       }]
     });
     
-    
-    this.his.getHistory(this.id).subscribe(dados=>{
+    let c = 0;
+    this.his.getHistorys().subscribe(dados=>{
       //dps = this.preencherGrafico(dados);
      // this.loadChart(dps);
      for (let a = 0; a < dados.length; a++) {
-      
-      dps.push({
-        label:dados[a].his_dt_periodo,
-        y:dados[a].his_preco
-        
-      })
+      if(dados[a].produto.id == this.id){
+        c++;
+        dps.push({
+          label:dados[a].his_dt_periodo,
+          y:dados[a].his_preco
+          
+        })
+      }else{
+      }
+    }
+    
+    if(c <=0){
+      this.hidden = false;
     }
     chart.render();
     })
     
-    
+    chart.render();
   }
 
   loadChart(dps){

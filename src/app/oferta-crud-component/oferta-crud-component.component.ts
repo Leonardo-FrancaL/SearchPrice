@@ -80,7 +80,7 @@ export class OfertaCrudComponentComponent implements OnInit {
     hist.his_dt_periodo = str_data;
 
     this.history.addHistory(hist).subscribe(dados=>{
-      console.log('')
+      console.log('historico salvo')
     });
 
     // this.his_preco = valor;

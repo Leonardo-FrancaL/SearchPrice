@@ -52,10 +52,10 @@ export class ApiService {
     );
   }
 
-  updateUsuario(email, produto): Observable<any> {
-    const url = `${apiUrl}/${email}`;
-    return this.http.put(url, produto, httpOptions).pipe(
-      tap(_ => console.log(`atualiza o Usuario com id=${email}`)),
+  updateUsuario(user): Observable<any> {
+    const url = `${apiUrl}/${user}`;
+    return this.http.put(url, user, httpOptions).pipe(
+      tap(_ => console.log(`atualiza o Usuario com id=${user}`)),
       catchError(this.handleError<any>('updateUsuario'))
     );
   }

@@ -16,8 +16,8 @@ export class HistoryService{
 
   constructor(private http: HttpClient) { }
   
-  getHistorys (): Observable<History[]> {
-    return this.http.get<History[]>(apiUrl)
+  getHistorys (): Observable<any[]> {
+    return this.http.get<any[]>(apiUrl)
       .pipe(
         tap(produtos => console.log('leu as Historys')),
         catchError(this.handleError('getHistorys', [])) 

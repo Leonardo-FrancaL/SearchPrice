@@ -44,6 +44,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { HistoryService } from './service/history.service.service';
 import { GraficHistoryComponent } from './grafic-history/grafic-history.component';
 import { ProdutosSResultComponent } from './produtos-sresult/produtos-sresult.component';
+import { MycommentsComponent } from './mycomments/mycomments.component';
 
 
 
@@ -67,7 +68,8 @@ import { ProdutosSResultComponent } from './produtos-sresult/produtos-sresult.co
     CommentsRateComponent,
     FooterComponent,
     GraficHistoryComponent,
-    ProdutosSResultComponent
+    ProdutosSResultComponent,
+    MycommentsComponent
   ],
   imports: [
     BrowserModule,
